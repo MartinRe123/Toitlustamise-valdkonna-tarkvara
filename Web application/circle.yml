@@ -5,7 +5,7 @@ deployment:
 ## Customize test commands
 test:
   override:
-    - phpunit Web application/tests # use PHPunit for testing
+    - echo "test"
 
 
 
