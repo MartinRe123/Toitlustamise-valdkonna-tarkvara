@@ -1,0 +1,70 @@
+/**
+ * Demo Styles
+ */
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+div.header{
+                color: #444;
+		  background-color: #efefef;
+  text-align: center;
+		border-bottom: 2px solid #D0D0D0;
+		font-size: 19px;
+		font-weight: normal;
+  padding: 1rem;
+
+
+
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+div.content {
+		color: #444;
+		border: 2px solid #D0D0D0;
+		font-size: 19px;
+		font-weight: normal;
+
+}
+
+div.block {
+		color: #444;
+		font-size: 19px;
+		font-weight: normal;
+
+
+}
+
+
+
+
+/**
+ * Footer Styles
+ */
+
+div.footer {
+		border-top: 2px solid #D0D0D0;
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
