@@ -1,11 +1,14 @@
-machine:
-  php:
-    version: 5.5
+deployment:
+  production:
+    branch: master
 
 ## Customize test commands
 test:
   override:
-    - phpunit test/unit-tests # use PHPunit for testing
+    - phpunit Web application/tests # use PHPunit for testing
+
+
+
 
 
 
