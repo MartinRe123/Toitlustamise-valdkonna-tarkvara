@@ -10,7 +10,7 @@
         </head>
         <body>
 <div class="header">
-<h1>Lehekülje päis</h1>
+<h1><a href="http://valgahaiglacatering.rf.gd/">Esilehele</a></h1>
 
 <?php         	
 if($this->session->userdata('logged_in')){
