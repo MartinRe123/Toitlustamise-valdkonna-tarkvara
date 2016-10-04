@@ -12,6 +12,11 @@
 <div class="header">
 <h1><a href="http://valgahaiglacatering.rf.gd/">Esilehele</a></h1>
 
+<td><a href='<?php echo base_url(); ?>index.php/langswitch/switchLanguage/english'>English</a></td>
+<td><a href='<?php echo base_url(); ?>index.php/langswitch/switchLanguage/estonian'>Estonian</a></td>
+<td><a href='<?php echo base_url(); ?>index.php/langswitch/switchLanguage/russian'>Russian</a></td>
+
+
 <?php         	
 if($this->session->userdata('logged_in')){
      	$session_data = $this->session->userdata('username');
