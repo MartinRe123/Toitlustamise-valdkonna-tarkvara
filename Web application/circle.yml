@@ -5,8 +5,8 @@ deployment:
 ## Customize test commands
 test:
   override:
-    - phpunit phpunit/phpunit # use PHPunit for testing
-    - php ./tests/StackTest.php --unit-tests
+    - phpunit tests # use PHPunit for testing
+
 
     
 
