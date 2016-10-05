@@ -7,7 +7,7 @@ class NewTest extends TestCase
     public function testPassing()
     {
  
-        $this->pass();  
+        $this->assertEquals(2, 1+1);  
     }
 
 }
