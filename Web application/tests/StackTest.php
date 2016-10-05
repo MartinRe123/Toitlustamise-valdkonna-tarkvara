@@ -11,4 +11,3 @@ class StackTest extends TestCase
     }
 
 }
-?>
