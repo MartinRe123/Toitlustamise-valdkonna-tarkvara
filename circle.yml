@@ -2,7 +2,7 @@
 ## Customize test commands
 test:
   override:
-    - phpunit Web application/tests # use PHPunit for testing
+    - phpunit "Web application/tests" # use PHPunit for testing
 
 
     
