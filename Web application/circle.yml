@@ -6,8 +6,8 @@ deployment:
 test:
   override:
     - phpunit phpunit/phpunit # use PHPunit for testing
-    - mkdir -p $CIRCLE_TEST_REPORTS/phpunit
-    - phpunit --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml tests
+    - php ./tests/StackTest.php --unit-tests
+
     
 
 
