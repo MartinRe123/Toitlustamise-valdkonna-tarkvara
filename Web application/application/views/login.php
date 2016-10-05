@@ -1,6 +1,14 @@
 <h1>Login leht</h1>
-<a href="http://valgahaiglacatering.rf.gd/">Esileht</a>
-<a href="http://valgahaiglacatering.rf.gd/index.php/register">Regamine</a>
+
+<div class="notification"> <?php if(isset($notification_message)){ echo $notification_message; } ?> </div>
+
+<a href="<?php echo base_url(); ?>">Esileht</a>
+<a href="<?php echo base_url(); ?>index.php/register">Regamine</a>
+
+
+<div class="form_validation_errors"> <?php echo validation_errors(); ?> </div>
+
+
 
 <!-- LOGIN FORM START -->
 <form method="post" accept-charset="utf-8" action="/index.php/login/start">

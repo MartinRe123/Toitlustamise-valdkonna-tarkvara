@@ -9,14 +9,16 @@ class Login extends CI_Controller {
 		$this->load->library('session');
 		//$this->load->model('login_model');
 		$this->load->model('Account_Validation','',TRUE);
+                $this->load->database();
 	
 	 }
  	
  	function index(){
         if($this->session->userdata('logged_in')){ //sisseloginutele ei luba uuesti sisse logimist.
-			//redirect($this->session->userdata('previous_url'), 'refresh');  
+			//redirect($this->session->userdata('previous_url'), 'refresh');
+            $data['notification_message'] = 'Olete juba sisse loginud, kasutaja vahetamiseks logige esmalt välja.';
             $this->load->view('header');
-		    $this->load->view('home');
+		    $this->load->view('home', $data);
 		    $this->load->view('footer');
  		}else{
  	 	    $data['title'] = ucfirst($this->lang->line('LOGIN_TITLE'));
@@ -28,17 +30,16 @@ class Login extends CI_Controller {
  	}
  	
  	function start(){
+        $this->load->library('form_validation');
    		$this->form_validation->set_rules('username', 'Kasutajanimi', 'trim|required');
    		$this->form_validation->set_rules('password', 'Parool', 'trim|required|callback_check_database');
-		if ($this->form_validation->run() == FALSE){
-		$this->load->view('header');
-		$this->load->view('login');
-		$this->load->view('footer');
-		}else{		
-			//redirect($this->session->userdata('previous_url'), 'refresh');
-			$this->load->view('header');
-    	    $this->load->view('home');
+		
+        if ($this->form_validation->run() == FALSE){
+		    $this->load->view('header');
+		    $this->load->view('login');
 		    $this->load->view('footer');
+		}else{		
+            redirect('home');
 		}
  	}
  
@@ -49,8 +50,9 @@ class Login extends CI_Controller {
      			$sess_array = array();
      			foreach($result as $row){
        				$sess_array = array(
-         			'username' => $row->username,
-         			'logged_in' => TRUE,
+         			'username'   => $row->username,
+         			'logged_in'  => TRUE,
+                    'role'       => $row->role,
        				);
        				$this->session->set_userdata($sess_array);
      			}
@@ -70,6 +72,7 @@ class Login extends CI_Controller {
 		$this->load->view('home');
 		$this->load->view('footer');
  	}
+
 
 }
 

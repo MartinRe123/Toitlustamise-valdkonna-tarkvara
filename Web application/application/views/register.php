@@ -1,6 +1,6 @@
 <div class="block">
 <h1>REGAMISE LEHT</h1>
-<a href="http://valgahaiglacatering.rf.gd/"> Esilehele</a>
+<a href="<?php echo base_url(); ?>"> Esilehele</a>
 
 <div class="form_validation_errors"> <?php echo validation_errors(); ?> </div>
 
