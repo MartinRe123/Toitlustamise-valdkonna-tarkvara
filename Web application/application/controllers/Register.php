@@ -9,7 +9,7 @@ class Register extends CI_Controller {
     	$this->load->helper('form');	
 		$this->load->library('form_validation');
 		$this->load->library('session');
-        $this->load->database();
+        #$this->load->database();
         
         if($this->session->userdata('logged_in') && ($this->session->userdata('role') == 'admin')){
             $this->load->view('header');

@@ -16,7 +16,6 @@
 <td><a href='<?php echo base_url(); ?>index.php/langswitch/switchLanguage/estonian'>Estonian</a></td>
 <td><a href='<?php echo base_url(); ?>index.php/langswitch/switchLanguage/russian'>Russian</a></td>
 
-
 <?php         	
 if($this->session->userdata('logged_in')){
      	$session_data = $this->session->userdata('username');

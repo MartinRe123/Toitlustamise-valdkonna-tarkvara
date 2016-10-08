@@ -4,7 +4,7 @@
 
 <a href="<?php echo base_url(); ?>">Esileht</a>
 <a href="<?php echo base_url(); ?>index.php/register">Regamine</a>
-
+<p>Admin kasutaja on testtest, parool sama</p>
 
 <div class="form_validation_errors"> <?php echo validation_errors(); ?> </div>
 

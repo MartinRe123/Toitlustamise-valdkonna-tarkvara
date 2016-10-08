@@ -9,7 +9,7 @@ class Login extends CI_Controller {
 		$this->load->library('session');
 		//$this->load->model('login_model');
 		$this->load->model('Account_Validation','',TRUE);
-                $this->load->database();
+                #$this->load->database();
 	
 	 }
  	
@@ -67,10 +67,7 @@ class Login extends CI_Controller {
     function logout(){
    		$this->session->unset_userdata('logged_in');
    		session_destroy();
-   		//redirect('home');
-        $this->load->view('header');
-		$this->load->view('home');
-		$this->load->view('footer');
+   		redirect('login');
  	}
 
 
