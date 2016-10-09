@@ -24,7 +24,6 @@ if($this->session->userdata('logged_in')){
  } ?>
 
 </div>
-
 <div class="content">
 
 
