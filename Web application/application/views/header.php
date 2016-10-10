@@ -10,7 +10,7 @@
         </head>
         <body>
 <div class="header">
-<h1><a href="<?php echo base_url(); ?>">Esilehele</a></h1>
+<h1><a href="<?php echo base_url(); ?>"><?php echo $this->lang->line("front_page"); ?></a></h1>
 
 <td><a href='<?php echo base_url(); ?>index.php/langswitch/switchLanguage/english'>English</a></td>
 <td><a href='<?php echo base_url(); ?>index.php/langswitch/switchLanguage/estonian'>Estonian</a></td>
