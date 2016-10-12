@@ -6,9 +6,9 @@
 
 <div class="notification"> <?php if(isset($notification_message)){ echo $notification_message; } ?> </div>
 
-<a href="<?php echo base_url(); ?>index.php/register">Regamine</a> 
-<a href="<?php echo base_url(); ?>index.php/login">Sisse logimine</a>
-<a href="<?php echo base_url(); ?>index.php/kitchen_menu">Köögi menüüd</a>
+<a href="<?php echo base_url(); ?>index.php/register"><?php echo $this->lang->line("register"); ?></a> 
+<a href="<?php echo base_url(); ?>index.php/login"><?php echo $this->lang->line("login"); ?></a>
+<a href="<?php echo base_url(); ?>index.php/kitchen_menu"><?php echo $this->lang->line("kitchen_menus"); ?></a>
 
 
 <br/>
