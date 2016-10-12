@@ -29,6 +29,13 @@ class Menu_model extends CI_Model {
         $sql = 'INSERT INTO section_menu (date, breakfast, lunch, supper, username) VALUES ("'.$date.'", "'.$breakfast.'", "'.$lunch.'", "'.$supper.'", "'.$section_worker.'")';
         $this->db->query($sql);
     }
+	
+	public function edit_section_menu($date, $breakfast, $lunch, $supper, $section_worker){
+		$this->load->database();
+        $sql = 'UPDATE section_menu SET breakfast="'.$breakfast.'", lunch="'.$lunch.'", supper="'.$supper.'", username="'.$section_worker.'" WHERE date="'.$date.'"';
+        $this->db->query($sql);		
+	}
+	
 }
 	
 

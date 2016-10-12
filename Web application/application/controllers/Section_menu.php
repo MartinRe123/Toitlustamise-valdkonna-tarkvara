@@ -19,6 +19,23 @@ class Section_menu extends CI_Controller {
 		$this->load->view('footer');
 
 	}
+	
+	
+	public function view($date){
+		$this->load->model('menu_model');
+		$data['order'] = $this->menu_model->get_section_menu($date);
+		if(!empty($data['order'])){
+			$this->load->library('session');
+    		$this->load->view('header');
+            $this->load->model('menu_model');
+            $data['date'] = $date;
+            $data['kitchen'] = $this->menu_model->get_kitchen_menu($date);
+    		$this->load->view('section_menu_view', $data);
+    		$this->load->view('footer'); 
+		}else{
+			redirect('kitchen_menu');
+		}
+	}
     
     
     public function create($date){
@@ -51,4 +68,37 @@ class Section_menu extends CI_Controller {
         }
         redirect('kitchen_menu');
     }
+	
+	public function edit($date){
+		$this->load->model('menu_model');
+        $data['order'] = $this->menu_model->get_section_menu($date);
+		if(!empty($data['order'])){
+			$this->load->library('session');
+    		$this->load->view('header');
+            $this->load->model('menu_model');
+            $data['date'] = $date;
+            $data['menu'] = $this->menu_model->get_kitchen_menu($date);
+    		$this->load->view('edit_section_menu', $data);
+    		$this->load->view('footer'); 
+        }else{
+			redirect('kitchen_menu');
+		}
+	}
+	
+	public function save_menu_edit($date){
+		$this->load->model('menu_model');
+        $array = $this->menu_model->get_section_menu($date);
+        if(!empty($array)){
+            $this->load->library('session');
+            $breakfast = $this->input->post('breakfast');
+            $lunch = $this->input->post('lunch');
+            $supper = $this->input->post('supper');
+            $username = $this->session->userdata('username');
+            $this->load->model('menu_model');
+            $this->menu_model->edit_section_menu($date, $breakfast, $lunch, $supper, $username);
+			redirect('section_menu/view/'.$date);
+        }else{
+			redirect('kitchen_menu');
+		}
+	}
 }
