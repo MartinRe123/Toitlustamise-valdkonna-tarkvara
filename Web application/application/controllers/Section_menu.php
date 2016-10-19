@@ -54,7 +54,7 @@ class Section_menu extends CI_Controller {
         }
     }
     
-    public function save_menu($date){
+    public function save_menu($date){ //siia pean kirjutama kontrolli, et ei jäetaks tühjasid aukusid... if input post array is empty...
         $this->load->model('menu_model');
         $array = $this->menu_model->get_section_menu($date);
         if(empty($array)){
@@ -62,11 +62,42 @@ class Section_menu extends CI_Controller {
             $breakfast = $this->input->post('breakfast');
             $lunch = $this->input->post('lunch');
             $supper = $this->input->post('supper');
+			
+			$breakfast_info = ""; //pakin info kokku andmebaasi saatmiseks. valikud eraldatud ";" semikooloniga. Igas valikus "=" võrdusmärgiga eraldatud, toidu nimi, info (koostis), kogus. 
+			if(!empty($breakfast)){
+				foreach ($breakfast as $value){
+					if($breakfast_info == ""){
+						$breakfast_info = $value;
+					}else{
+						$breakfast_info = $breakfast_info . ";" . $value;
+					}
+				}
+			}
+			$lunch_info = "";
+			if(!empty($lunch)){
+				foreach ($lunch as $value){
+					if($lunch_info == ""){
+						$lunch_info = $value;
+					}else{
+						$lunch_info = $lunch_info . ";" . $value;
+					}
+				}
+			}
+			$supper_info = "";
+			if(!empty($supper)){
+				foreach ($supper as $value){
+					if($supper_info == ""){
+						$supper_info = $value;
+					}else{
+						$supper_info = $supper_info . ";" . $value;
+					}
+				}
+			}			
             $username = $this->session->userdata('username');
             $this->load->model('menu_model');
-            $this->menu_model->save_section_menu($date, $breakfast, $lunch, $supper, $username);
-        }
-        redirect('kitchen_menu');
+            $this->menu_model->save_section_menu($date, $breakfast_info, $lunch_info, $supper_info, $username);
+        }				
+		redirect('kitchen_menu');
     }
 	
 	public function edit($date){
@@ -93,9 +124,41 @@ class Section_menu extends CI_Controller {
             $breakfast = $this->input->post('breakfast');
             $lunch = $this->input->post('lunch');
             $supper = $this->input->post('supper');
+			
+			$breakfast_info = ""; //pakin info kokku andmebaasi saatmiseks. valikud eraldatud ";" semikooloniga. Igas valikus "=" võrdusmärgiga eraldatud, toidu nimi, info (koostis), kogus. 
+			if(!empty($breakfast)){
+				foreach ($breakfast as $value){
+					if($breakfast_info == ""){
+						$breakfast_info = $value;
+					}else{
+						$breakfast_info = $breakfast_info . ";" . $value;
+					}
+				}
+			}
+			$lunch_info = "";
+			if(!empty($lunch)){
+				foreach ($lunch as $value){
+					if($lunch_info == ""){
+						$lunch_info = $value;
+					}else{
+						$lunch_info = $lunch_info . ";" . $value;
+					}
+				}
+			}
+			$supper_info = "";
+			if(!empty($supper)){
+				foreach ($supper as $value){
+					if($supper_info == ""){
+						$supper_info = $value;
+					}else{
+						$supper_info = $supper_info . ";" . $value;
+					}
+				}
+			}
+			
             $username = $this->session->userdata('username');
             $this->load->model('menu_model');
-            $this->menu_model->edit_section_menu($date, $breakfast, $lunch, $supper, $username);
+            $this->menu_model->edit_section_menu($date, $breakfast_info, $lunch_info, $supper_info, $username);
 			redirect('section_menu/view/'.$date);
         }else{
 			redirect('kitchen_menu');

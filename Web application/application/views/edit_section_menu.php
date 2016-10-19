@@ -8,45 +8,51 @@ if(!empty($menu)){
 	$order_breakfast = $order_array['breakfast'];
 	$order_lunch = $order_array['lunch'];
 	$order_supper = $order_array['supper'];
+		
 	
-    $array = $menu[0];
+	$array = $menu[0];
     $breakfast_array = explode(';', $array['breakfast']);
     $lunch_array = explode(';', $array['lunch']);
     $supper_array = explode(';', $array['supper']);
-    $breakfast_info = explode(';', $array['breakfast_info']);
-    $lunch_info = explode(';', $array['lunch_info']);
-    $supper_info = explode(';', $array['supper_info']);
-
 
     $max_rows = max(count($breakfast_array), count($lunch_array), count($supper_array));
     echo 'Hoia hiirekursorit toidu nimetusel, et näha lisainfot.';
     echo '<form method="post" accept-charset="utf-8" action="/index.php/section_menu/save_menu_edit/'.$date.'"><table>';
     echo '<tr><td>Hommikusöök</td><td>Lõunasöök</td><td>Õhtusöök</td></tr>';
-    for ($i = 0; $i < $max_rows; $i++){
+    
+	for ($i = 0; $i < $max_rows; $i++){
         echo '<tr>';
-        if(!empty($breakfast_array[$i])){
-            echo '<td><input type="radio" name="breakfast" value="'. $breakfast_array[$i] .'"';
-			if($breakfast_array[$i] == $order_breakfast){
-				echo ' checked="checked"';
-			}
-			echo '><span title="'.$breakfast_info[$i].'">'.$breakfast_array[$i].'</span></td>'; 
+        if(!empty($breakfast_array[$i])){ //kontroll, kas elemente leidub
+			$food_name = explode('=', $breakfast_array[$i])[0];
+			$food_info = explode('=', $breakfast_array[$i])[1];
+            echo '	<td>
+					<input type="checkbox" id="b_'.$i.'" name="breakfast[]" value="'. $food_name . "=" . $food_info .'" onclick="showTextbox(this);">
+					<span title="'. $food_info .'">'. $food_name .'</span>
+					<div id="b_'. $food_name . '_count[]"></div>
+					</td>'; 
         }
-        if(!empty($lunch_array[$i])){
-			echo '<td><input type="radio" name="lunch" value="'. $lunch_array[$i] .'"';
-			if($lunch_array[$i] == $order_lunch){
-				echo ' checked="checked"';
-			}
-            echo '><span title="'.$lunch_info[$i].'">'.$lunch_array[$i].'</span></td>';
+        if(!empty($lunch_array[$i])){ //kontroll, kas elemente leidub
+			$food_name = explode('=', $lunch_array[$i])[0];
+			$food_info = explode('=', $lunch_array[$i])[1];
+			echo '	<td>
+					<input type="checkbox" id="l_'.$i.'" name="lunch[]" value="'. $food_name . "=" . $food_info .'" onclick="showTextbox(this);">
+					<span title="'. $food_info .'">'. $food_name .'</span>
+					<div id="l_'. $food_name . '_count[]"></div>
+					</td>';
         }
-        if(!empty($supper_array[$i])){
-			echo '<td><input type="radio" name="supper" value="'. $supper_array[$i] .'"';
-			if($supper_array[$i] == $order_supper){
-				echo ' checked="checked"';
-			}
-            echo '><span title="'.$supper_info[$i].'">'.$supper_array[$i].'</span></td>';
+        if(!empty($supper_array[$i])){ //kontroll, kas elemente leidub
+			$food_name = explode('=', $supper_array[$i])[0];
+			$food_info = explode('=', $supper_array[$i])[1];
+			echo '	<td>
+					<input type="checkbox" id="s_'.$i.'" name="supper[]" value="'. $food_name . "=" . $food_info .'" onclick="showTextbox(this);">
+					<span title="'. $food_info .'">'. $food_name .'</span>
+					<div id="s_'. $food_name . '_count[]"></div>
+					</td>';
         }
         echo '</tr>';
     }
-    echo '</table><input type="submit" value="Muuda"></form>';
+    echo '</table><input type="submit" value="Muuda tellimust" onclick="addAllCount();"></form>';
+	
+	echo '<script type="text/javascript"> fillSelected("'.$order_breakfast.'", "'.$order_lunch.'", "'.$order_supper.'"); </script>';
 }
 ?>

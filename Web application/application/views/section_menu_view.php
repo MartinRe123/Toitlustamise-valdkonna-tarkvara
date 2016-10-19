@@ -4,48 +4,47 @@
 
 <?php 
 
-    $array_order = $order[0];
-	$array_kitchen_menu = $kitchen[0];
+    $array_order = $order[0];	
 	
-	$breakfast_array = explode(';', $array_kitchen_menu['breakfast']);
-    $lunch_array = explode(';', $array_kitchen_menu['lunch']);
-    $supper_array = explode(';', $array_kitchen_menu['supper']);
+	$breakfast_array = array();
+	$lunch_array = array();
+	$supper_array = array();
 	
-	$breakfast_info_array = explode(';', $array_kitchen_menu['breakfast_info']);
-    $lunch_info_array = explode(';', $array_kitchen_menu['lunch_info']);
-    $supper_info_array = explode(';', $array_kitchen_menu['supper_info']);
-	
-	$b_i = 0;
-	$l_i = 0;
-	$s_i = 0;
-	
-	for ($i = 0; $i < count($breakfast_array); $i++){
-		if($array_order['breakfast'] == $breakfast_array[$i]){
-			$b_i = $i;
-			break;
-		}
+	if(!empty($array_order['breakfast'])){
+		$breakfast_array = explode(';', $array_order['breakfast']);
+	}
+	if(!empty($array_order['lunch'])){
+		$lunch_array = explode(';', $array_order['lunch']);
+	}
+	if(!empty($array_order['supper'])){
+	    $supper_array = explode(';', $array_order['supper']);
 	}
 	
-	for ($i = 0; $i < count($lunch_array); $i++){
-		if($array_order['lunch'] == $lunch_array[$i]){
-			$l_i = $i;
-			break;
+	$max_rows = max(count($breakfast_array), count($lunch_array), count($supper_array));
+	echo '<table><tr><td>Hommikusöök</td><td>Lõunasöök</td><td>Õhtusöök</td></tr><tr>';
+	for ($i = 0; $i < $max_rows; $i++){
+		echo '<tr>';
+		if($i < count($breakfast_array)){
+			$b_inf = explode("=", $breakfast_array[$i]);
+			echo '<td><span title="'.$b_inf[1].'">'.$b_inf[0].'</span> (Kogus: '.$b_inf[2].')</td>';
+		}else{
+			echo '<td></td>';
 		}
-	}
-	
-	for ($i = 0; $i < count($supper_array); $i++){
-		if($array_order['supper'] == $supper_array[$i]){
-			$s_i = $i;
-			break;
+		if($i < count($lunch_array)){
+			$l_inf = explode("=", $lunch_array[$i]);
+			echo '<td><span title="'.$l_inf[1].'">'.$l_inf[0].'</span> (Kogus: '.$l_inf[2].')</td>';
+		}else{
+			echo '<td></td>';
 		}
+		if($i < count($supper_array)){
+			$s_inf = explode("=", $supper_array[$i]);
+			echo '<td><span title="'.$s_inf[1].'">'.$s_inf[0].'</span> (Kogus: '.$s_inf[2].')</td>';
+		}else{
+			echo '<td></td>';
+		}
+		echo '</tr>';
 	}
-	
-	echo '<table>
-	<tr><td>Hommikusöök</td><td>Lõunasöök</td><td>Õhtusöök</td></tr>
-	<tr><td><span title="'.$breakfast_info_array[$b_i].'">'.$array_order['breakfast'].'</span></td>
-	<td><span title="'.$lunch_info_array[$l_i].'">'.$array_order['lunch'].'</span></td>
-	<td><span title="'.$supper_info_array[$s_i].'">'.$array_order['supper'].'</span></td></tr>
-	</table>';
+	echo '</table>';
 ?>
 
 
