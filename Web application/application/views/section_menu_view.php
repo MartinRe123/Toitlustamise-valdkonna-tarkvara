@@ -1,4 +1,4 @@
-<?php echo '<h1> Osakonna menüü kuupäeval '.$date.'</h1>';?>
+<?php echo '<h1>'.$section_name.' menüü kuupäeval '.$date.'</h1>';?>
 </br>
 <a href="<?php base_url() ?>/index.php/kitchen_menu">Tagasi menüüde lehele</a>
 
@@ -6,6 +6,7 @@
 
     $array_order = $order[0];	
 	
+	$comments = $array_order['comments'];
 	$breakfast_array = array();
 	$lunch_array = array();
 	$supper_array = array();
@@ -45,7 +46,10 @@
 		echo '</tr>';
 	}
 	echo '</table>';
+	echo '<p>Lisamärkused:</p>';
+	echo '<textarea name="comments" rows="4" cols="50" disabled>'.$comments.'</textarea><br/>';
 ?>
 
 
 <a href="<?php base_url() ?>/index.php/section_menu/edit/<?php echo $date ?>">Muuda menüüd</a>
+<a onclick="deleteConfirmation(this, '<?php base_url() ?>/index.php/section_menu/delete/<?php echo $date; ?>');" href="">Kustuta menüü</a>

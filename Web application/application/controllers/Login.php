@@ -53,6 +53,7 @@ class Login extends CI_Controller {
          			'username'   => $row->username,
          			'logged_in'  => TRUE,
                     'role'       => $row->role,
+					'section'	 => $row->section_name,
        				);
        				$this->session->set_userdata($sess_array);
      			}
@@ -62,6 +63,12 @@ class Login extends CI_Controller {
      			return false;
    		}
  	}
+	
+	function test(){
+		$this->load->view('header');
+		print_r ($this->session->userdata);
+		$this->load->view('footer');
+	}
      
        
     function logout(){

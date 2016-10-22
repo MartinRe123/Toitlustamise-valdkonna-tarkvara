@@ -24,11 +24,15 @@
 <input type="text" id="new_email" name="new_email" value="<?php echo set_value('new_email'); ?>" />
 
 <label for="new_role">Roll: </label>
-        <select id="new_role" name="new_role">
+        <select id="new_role" name="new_role" onchange="sectionBox(this);">
                 <option value="admin" selected="selected">Administraator</option>
                 <option value="kokk">Kokk</option>
                 <option value="osakond" >Osakond</option>
         </select>
+
+<label for="section_box">Osakonna nimi: </label>
+<input type="text" id="section_box" name="new_section" disabled />
+<br/>
 
 <button type="submit">Valmis</button>
 

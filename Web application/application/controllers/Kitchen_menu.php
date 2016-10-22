@@ -19,6 +19,7 @@ class Kitchen_menu extends CI_Controller {
         $this->load->view('header');
         $this->load->model('menu_model');
         $data['kitchen_menus'] = $this->menu_model->get_kitchen_menus();
+		$data['section_name'] = $this->session->userdata('section');
     	$this->load->view('kitchen_menu', $data);
         $this->load->view('footer');
 	}

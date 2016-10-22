@@ -8,6 +8,8 @@
 		
 
 <script type="text/javascript" src="<?php echo base_url(); ?>js/section_menu_functions.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>js/registration_functions.js"></script>
+
 
 
         </head>

@@ -1,6 +1,6 @@
-<?php echo '<h1> Osakonna menüü koostamine kuupäevaks: '.$date.'</h1>';?>
+<?php echo '<h1>'.$section_name.' menüü kuupäeval '.$date.'</h1>';?>
 <br/>
-<a href="<?php base_url() ?>/index.php/kitchen_menu">Tagasi menüüde lehele</a>
+<a href="<?php base_url() ?>/index.php/kitchen_menu">Tagasi menüüde lehele</a><br/><br/>
 
 
 
@@ -13,7 +13,7 @@ if(!empty($menu)){
     $supper_array = explode(';', $array['supper']);
 
     $max_rows = max(count($breakfast_array), count($lunch_array), count($supper_array));
-    echo 'Hoia hiirekursorit toidu nimetusel, et näha lisainfot.';
+    echo 'Hoia hiirekursorit toidu nimetusel, et näha lisainfot.<br/><br/>';
     echo '<form method="post" accept-charset="utf-8" action="/index.php/section_menu/save_menu/'.$date.'"><table>';
     echo '<tr><td>Hommikusöök</td><td>Lõunasöök</td><td>Õhtusöök</td></tr>';
     
@@ -48,6 +48,8 @@ if(!empty($menu)){
         }
         echo '</tr>';
     }
-    echo '</table><input type="submit" value="Saada tellimus" onclick="addAllCount();"></form>';
+    echo '</table><br/><p>Lisamärkused:</p>';
+	echo '<textarea name="comments" rows="4" cols="50"></textarea><br/>';
+	echo '<input type="submit" value="Saada tellimus" onclick="addAllCount();"></form>';
 }
 ?>

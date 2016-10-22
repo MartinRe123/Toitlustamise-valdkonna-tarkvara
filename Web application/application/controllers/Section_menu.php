@@ -23,11 +23,13 @@ class Section_menu extends CI_Controller {
 	
 	public function view($date){
 		$this->load->model('menu_model');
-		$data['order'] = $this->menu_model->get_section_menu($date);
+		$section_name = $this->session->userdata('section');
+		$data['order'] = $this->menu_model->get_section_menu($date, $section_name);
 		if(!empty($data['order'])){
 			$this->load->library('session');
     		$this->load->view('header');
             $this->load->model('menu_model');
+			$data['section_name'] = $section_name;
             $data['date'] = $date;
             $data['kitchen'] = $this->menu_model->get_kitchen_menu($date);
     		$this->load->view('section_menu_view', $data);
@@ -40,11 +42,13 @@ class Section_menu extends CI_Controller {
     
     public function create($date){
         $this->load->model('menu_model');
-        $array = $this->menu_model->get_section_menu($date);
+		$section_name = $this->session->userdata('section');
+        $array = $this->menu_model->get_section_menu($date, $section_name);
         if(empty($array)){
         	$this->load->library('session');
     		$this->load->view('header');
             $this->load->model('menu_model');
+			$data['section_name'] = $section_name;
             $data['date'] = $date;
             $data['menu'] = $this->menu_model->get_kitchen_menu($date);
     		$this->load->view('create_section_menu', $data);
@@ -56,7 +60,8 @@ class Section_menu extends CI_Controller {
     
     public function save_menu($date){ //siia pean kirjutama kontrolli, et ei jäetaks tühjasid aukusid... if input post array is empty...
         $this->load->model('menu_model');
-        $array = $this->menu_model->get_section_menu($date);
+		$section_name = $this->session->userdata('section');
+        $array = $this->menu_model->get_section_menu($date, $section_name);
         if(empty($array)){
             $this->load->library('session');
             $breakfast = $this->input->post('breakfast');
@@ -94,19 +99,23 @@ class Section_menu extends CI_Controller {
 				}
 			}			
             $username = $this->session->userdata('username');
+			$section_name = $this->session->userdata('section');
+			$comments = $this->input->post('comments');
             $this->load->model('menu_model');
-            $this->menu_model->save_section_menu($date, $breakfast_info, $lunch_info, $supper_info, $username);
+            $this->menu_model->save_section_menu($date, $breakfast_info, $lunch_info, $supper_info, $username, $section_name, $comments);
         }				
 		redirect('kitchen_menu');
     }
 	
 	public function edit($date){
 		$this->load->model('menu_model');
-        $data['order'] = $this->menu_model->get_section_menu($date);
+		$section_name = $this->session->userdata('section');
+        $data['order'] = $this->menu_model->get_section_menu($date, $section_name);
 		if(!empty($data['order'])){
 			$this->load->library('session');
     		$this->load->view('header');
             $this->load->model('menu_model');
+			$data['section_name'] = $section_name;
             $data['date'] = $date;
             $data['menu'] = $this->menu_model->get_kitchen_menu($date);
     		$this->load->view('edit_section_menu', $data);
@@ -118,7 +127,8 @@ class Section_menu extends CI_Controller {
 	
 	public function save_menu_edit($date){
 		$this->load->model('menu_model');
-        $array = $this->menu_model->get_section_menu($date);
+		$section_name = $this->session->userdata('section');
+        $array = $this->menu_model->get_section_menu($date, $section_name);
         if(!empty($array)){
             $this->load->library('session');
             $breakfast = $this->input->post('breakfast');
@@ -157,11 +167,20 @@ class Section_menu extends CI_Controller {
 			}
 			
             $username = $this->session->userdata('username');
+			$section_name = $this->session->userdata('section');
+			$comments = $this->input->post('comments');
             $this->load->model('menu_model');
-            $this->menu_model->edit_section_menu($date, $breakfast_info, $lunch_info, $supper_info, $username);
+            $this->menu_model->edit_section_menu($date, $breakfast_info, $lunch_info, $supper_info, $username, $section_name, $comments);
 			redirect('section_menu/view/'.$date);
         }else{
 			redirect('kitchen_menu');
 		}
+	}
+	
+	public function delete($date){
+		$this->load->model('menu_model');
+		$section_name = $this->session->userdata('section');
+		$this->menu_model->delete_kitchen_menu($date, $section_name); //arvatavasti osakond juurde lisada vaja, muidu võib vale asja kustutada (kellegi teise menüü)
+		redirect('kitchen_menu');
 	}
 }

@@ -9,7 +9,6 @@ class Register extends CI_Controller {
     	$this->load->helper('form');	
 		$this->load->library('form_validation');
 		$this->load->library('session');
-        #$this->load->database();
         
         if($this->session->userdata('logged_in') && ($this->session->userdata('role') == 'admin')){
             $this->load->view('header');
@@ -27,7 +26,6 @@ class Register extends CI_Controller {
 
     function registrate(){
         $this->load->library('form_validation');
-        //$this->load->view('home');
         $this->load->model('register_model');
         $this->load->database();
         $this->load->library('session');
@@ -35,11 +33,9 @@ class Register extends CI_Controller {
 		$this->form_validation->set_rules('new_password', 'Parool', 'trim|required|min_length[8]');
 		$this->form_validation->set_rules('new_password_again', 'Parool uuesti', 'trim|required|matches[new_password]');
 		$this->form_validation->set_rules('new_email', 'Email', 'trim|required|valid_email|is_unique[user.email]');
+		$this->form_validation->set_rules('section_box', 'Osakonna nimi', 'trim');
 		
-		
-		//if($this->session->userdata('logged_in')){ //sisseloginutele ei luba regamist. peab esmalt välja logima.
-		//	redirect(base_url(), 'refresh');    			
- 		//}else{
+
    			if ($this->form_validation->run() == FALSE){
 		    	$this->load->view('header');
 		        $this->load->view('register');
@@ -50,14 +46,12 @@ class Register extends CI_Controller {
 				    'password'     => $this->input->post('new_password'),
 				    'email'        => $this->input->post('new_email'),
                     'role'         => $this->input->post('new_role'),
+					'section'      => $this->input->post('new_section'),
                 );
-			    $this->register_model->create_new_user($user_array);
-                        //redirect(base_url(), 'refresh');
-                
+			    $this->register_model->create_new_user($user_array);                
                 $this->load->view('header');
 		        $this->load->view('registration_complete');
 		        $this->load->view('footer');
         	}
-   		//}
 	}
 }

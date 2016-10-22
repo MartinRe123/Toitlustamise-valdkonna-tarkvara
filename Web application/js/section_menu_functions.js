@@ -71,3 +71,10 @@ function fillMeal (meal, selection_info){
 		i++;
 	}
 }
+
+function deleteConfirmation(a, url){
+	var result = confirm("Kas soovite kindlalt kustutada?");
+	if (result) {
+		a.href = url;
+	}
+}

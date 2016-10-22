@@ -5,7 +5,7 @@ class Register_model extends CI_Model {
 
 	public function create_new_user($info){
                 $this->load->database();
-                $sql = "INSERT INTO user (username, email, password, role) VALUES ('$info[username]', '$info[email]', MD5('$info[password]'), '$info[role]')";
+                $sql = "INSERT INTO user (username, email, password, role, section_name) VALUES ('$info[username]', '$info[email]', MD5('$info[password]'), '$info[role]', '$info[section]')";
 		        $query = $this->db->query($sql);
 		        if($query === TRUE){
 			        return TRUE;

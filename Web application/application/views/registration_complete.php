@@ -1,2 +1,2 @@
 <p>Registreerumine õnnestus!</p>
-<a href="http://valgahaiglacatering.rf.gd/index.php/login">Sisse logimine</a>
+<a href="<?php echo base_url(); ?>index.php/home">Tagasi esilehele</a>

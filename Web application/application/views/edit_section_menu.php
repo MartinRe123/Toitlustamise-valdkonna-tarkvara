@@ -1,4 +1,4 @@
-<?php echo '<h1> Osakonna menüü kuupäeval '.$date.'</h1>';?>
+<?php echo '<h1>'.$section_name.' menüü kuupäeval '.$date.'</h1>';?>
 </br>
 <a href="<?php base_url() ?>/index.php/kitchen_menu">Tagasi menüüde lehele</a>
 
@@ -8,13 +8,14 @@ if(!empty($menu)){
 	$order_breakfast = $order_array['breakfast'];
 	$order_lunch = $order_array['lunch'];
 	$order_supper = $order_array['supper'];
+	$comments = $order_array['comments'];
 		
 	
 	$array = $menu[0];
     $breakfast_array = explode(';', $array['breakfast']);
     $lunch_array = explode(';', $array['lunch']);
     $supper_array = explode(';', $array['supper']);
-
+	
     $max_rows = max(count($breakfast_array), count($lunch_array), count($supper_array));
     echo 'Hoia hiirekursorit toidu nimetusel, et näha lisainfot.';
     echo '<form method="post" accept-charset="utf-8" action="/index.php/section_menu/save_menu_edit/'.$date.'"><table>';
@@ -22,7 +23,7 @@ if(!empty($menu)){
     
 	for ($i = 0; $i < $max_rows; $i++){
         echo '<tr>';
-        if(!empty($breakfast_array[$i])){ //kontroll, kas elemente leidub
+        if(!empty($breakfast_array[$i])){
 			$food_name = explode('=', $breakfast_array[$i])[0];
 			$food_info = explode('=', $breakfast_array[$i])[1];
             echo '	<td>
@@ -31,7 +32,7 @@ if(!empty($menu)){
 					<div id="b_'. $food_name . '_count[]"></div>
 					</td>'; 
         }
-        if(!empty($lunch_array[$i])){ //kontroll, kas elemente leidub
+        if(!empty($lunch_array[$i])){
 			$food_name = explode('=', $lunch_array[$i])[0];
 			$food_info = explode('=', $lunch_array[$i])[1];
 			echo '	<td>
@@ -40,7 +41,7 @@ if(!empty($menu)){
 					<div id="l_'. $food_name . '_count[]"></div>
 					</td>';
         }
-        if(!empty($supper_array[$i])){ //kontroll, kas elemente leidub
+        if(!empty($supper_array[$i])){
 			$food_name = explode('=', $supper_array[$i])[0];
 			$food_info = explode('=', $supper_array[$i])[1];
 			echo '	<td>
@@ -51,7 +52,9 @@ if(!empty($menu)){
         }
         echo '</tr>';
     }
-    echo '</table><input type="submit" value="Muuda tellimust" onclick="addAllCount();"></form>';
+    echo '</table><br/><p>Lisamärkused:</p>';
+	echo '<textarea name="comments" rows="4" cols="50">'.$comments.'</textarea><br/>';
+	echo '<input type="submit" value="Muuda tellimust" onclick="addAllCount();"></form>';
 	
 	echo '<script type="text/javascript"> fillSelected("'.$order_breakfast.'", "'.$order_lunch.'", "'.$order_supper.'"); </script>';
 }
