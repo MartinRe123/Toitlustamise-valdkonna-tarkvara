@@ -7,6 +7,13 @@ class Menu_model extends CI_Model {
 	    $query = $this->db->query($sql);
 	    return $query->result_array();
 	}
+	
+	public function get_created_dates($current_date){
+		$this->load->database();
+        $sql = 'SELECT date FROM kitchen_menu WHERE date >="'.$current_date.'"';
+	    $query = $this->db->query($sql);
+	    return $query->result_array();
+	}
     
     
     public function get_kitchen_menus(){
@@ -21,6 +28,12 @@ class Menu_model extends CI_Model {
         $sql = 'SELECT * FROM section_menu WHERE date ="'.$date.'" AND section_name="'.$section_name.'"';
         $query = $this->db->query($sql);
         return $query->result_array();
+    }
+
+    public function save_kitchen_menu($date, $breakfast, $lunch, $supper, $username){
+        $this->load->database();
+        $sql = 'INSERT INTO kitchen_menu (date, breakfast, lunch, supper, username) VALUES ("'.$date.'", "'.$breakfast.'", "'.$lunch.'", "'.$supper.'", "'.$username.'")';
+        $this->db->query($sql);
     }
     
     
