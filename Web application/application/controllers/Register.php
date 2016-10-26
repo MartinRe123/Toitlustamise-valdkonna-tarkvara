@@ -11,12 +11,14 @@ class Register extends CI_Controller {
 		$this->load->library('session');
         
         if($this->session->userdata('logged_in') && ($this->session->userdata('role') == 'admin')){
+            $this->load->view('sidebar');
             $this->load->view('header');
 		    $this->load->view('register');
 		    $this->load->view('footer');
         }else{
             $data['notification_message'] = 'Pead olema sisse logitud admin kontoga, et kasutajaid registreerida';
             $this->session->userdata('role');
+            $this->load->view('sidebar');
             $this->load->view('header');
             $this->load->view('login', $data);
     	    $this->load->view('footer');
@@ -37,6 +39,7 @@ class Register extends CI_Controller {
 		
 
    			if ($this->form_validation->run() == FALSE){
+                            $this->load->view('sidebar');
 		    	$this->load->view('header');
 		        $this->load->view('register');
 		        $this->load->view('footer');
@@ -48,7 +51,8 @@ class Register extends CI_Controller {
                     'role'         => $this->input->post('new_role'),
 					'section'      => $this->input->post('new_section'),
                 );
-			    $this->register_model->create_new_user($user_array);                
+			    $this->register_model->create_new_user($user_array); 
+                            $this->load->view('sidebar');
                 $this->load->view('header');
 		        $this->load->view('registration_complete');
 		        $this->load->view('footer');

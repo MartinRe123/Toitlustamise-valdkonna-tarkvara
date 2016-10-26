@@ -17,11 +17,13 @@ class Login extends CI_Controller {
         if($this->session->userdata('logged_in')){ //sisseloginutele ei luba uuesti sisse logimist.
 			//redirect($this->session->userdata('previous_url'), 'refresh');
             $data['notification_message'] = 'Olete juba sisse loginud, kasutaja vahetamiseks logige esmalt välja.';
+            $this->load->view('sidebar');
             $this->load->view('header');
 		    $this->load->view('home', $data);
 		    $this->load->view('footer');
  		}else{
  	 	    $data['title'] = ucfirst($this->lang->line('LOGIN_TITLE'));
+                    $this->load->view('sidebar');
 		    $this->load->view('header');
 		    $this->load->view('login');
 		    $this->load->view('footer');
@@ -35,6 +37,7 @@ class Login extends CI_Controller {
    		$this->form_validation->set_rules('password', 'Parool', 'trim|required|callback_check_database');
 		
         if ($this->form_validation->run() == FALSE){
+                    $this->load->view('sidebar');
 		    $this->load->view('header');
 		    $this->load->view('login');
 		    $this->load->view('footer');
@@ -65,6 +68,7 @@ class Login extends CI_Controller {
  	}
 	
 	function test(){
+                $this->load->view('sidebar');
 		$this->load->view('header');
 		print_r ($this->session->userdata);
 		$this->load->view('footer');

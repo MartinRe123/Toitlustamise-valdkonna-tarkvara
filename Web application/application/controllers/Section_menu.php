@@ -13,8 +13,9 @@ class Section_menu extends CI_Controller {
 
 	public function index(){
 		$this->load->library('session');
+                $this->load->view('sidebar');
 		$this->load->view('header');
-        $this->load->model('menu_model');
+                $this->load->model('menu_model');
 		$this->load->view('section_menu');
 		$this->load->view('footer');
 
@@ -27,13 +28,14 @@ class Section_menu extends CI_Controller {
 		$data['order'] = $this->menu_model->get_section_menu($date, $section_name);
 		if(!empty($data['order'])){
 			$this->load->library('session');
-    		$this->load->view('header');
-            $this->load->model('menu_model');
+                        $this->load->view('sidebar');
+    		        $this->load->view('header');
+                        $this->load->model('menu_model');
 			$data['section_name'] = $section_name;
-            $data['date'] = $date;
-            $data['kitchen'] = $this->menu_model->get_kitchen_menu($date);
-    		$this->load->view('section_menu_view', $data);
-    		$this->load->view('footer'); 
+                        $data['date'] = $date;
+                        $data['kitchen'] = $this->menu_model->get_kitchen_menu($date);
+    		        $this->load->view('section_menu_view', $data);
+    		        $this->load->view('footer'); 
 		}else{
 			redirect('kitchen_menu');
 		}
@@ -46,11 +48,12 @@ class Section_menu extends CI_Controller {
         $array = $this->menu_model->get_section_menu($date, $section_name);
         if(empty($array)){
         	$this->load->library('session');
+                $this->load->view('sidebar');
     		$this->load->view('header');
-            $this->load->model('menu_model');
-			$data['section_name'] = $section_name;
-            $data['date'] = $date;
-            $data['menu'] = $this->menu_model->get_kitchen_menu($date);
+                $this->load->model('menu_model');
+	        $data['section_name'] = $section_name;
+                $data['date'] = $date;
+                $data['menu'] = $this->menu_model->get_kitchen_menu($date);
     		$this->load->view('create_section_menu', $data);
     		$this->load->view('footer'); 
         }else{
@@ -113,6 +116,7 @@ class Section_menu extends CI_Controller {
         $data['order'] = $this->menu_model->get_section_menu($date, $section_name);
 		if(!empty($data['order'])){
 			$this->load->library('session');
+                        $this->load->view('sidebar');
     		$this->load->view('header');
             $this->load->model('menu_model');
 			$data['section_name'] = $section_name;

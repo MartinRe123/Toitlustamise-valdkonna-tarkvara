@@ -14,6 +14,7 @@ class Menu extends CI_Controller {
 
     function create(){
         $this->load->library('session');
+        $this->load->view('sidebar');
         $this->load->view('header');
         $this->load->view('home');
         $this->load->view('footer');

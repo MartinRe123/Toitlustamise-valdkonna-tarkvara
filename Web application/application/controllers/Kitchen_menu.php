@@ -16,6 +16,7 @@ class Kitchen_menu extends CI_Controller {
 		$this->load->helper('form');	
 		$this->load->library('form_validation');
         $this->load->library('session');
+        $this->load->view('sidebar');
         $this->load->view('header');
         $this->load->model('menu_model');
         $data['kitchen_menus'] = $this->menu_model->get_kitchen_menus();
@@ -29,6 +30,7 @@ class Kitchen_menu extends CI_Controller {
 		$this->load->helper('form');	
 		$this->load->library('form_validation');
         $this->load->library('session');
+        $this->load->view('sidebar');
         $this->load->view('header');
         $this->load->model('menu_model');
 		$data['dates'] = $this->menu_model->get_created_dates(date("Y-m-d"));
