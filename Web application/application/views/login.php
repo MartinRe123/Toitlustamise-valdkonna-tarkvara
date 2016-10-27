@@ -2,8 +2,6 @@
 
 <div class="notification"> <?php if(isset($notification_message)){ echo $notification_message; } ?> </div>
 
-<a href="<?php echo base_url(); ?>"><?php echo $this->lang->line("front_page"); ?></a>
-<a href="<?php echo base_url(); ?>index.php/register"><?php echo $this->lang->line("register"); ?></a>
 <p>Admin kasutaja on testtest, parool sama</p>
 
 <div class="form_validation_errors"> <?php echo validation_errors(); ?> </div>

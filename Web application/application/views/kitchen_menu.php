@@ -7,9 +7,9 @@
 foreach ($kitchen_menus as $menu){
     $array = $this->menu_model->get_section_menu($menu['date'], $section_name);
     if(!empty($array)){
-        echo '<a href="section_menu/view/'.$menu['date'].'">'.$menu['date'].' [Juba koostatud]<br/>';
+        echo '<a class="date_menu" href="section_menu/view/'.$menu['date'].'">'.$menu['date'].' [Juba koostatud]<br/>';
     }else{
-        echo '<a href="section_menu/create/'.$menu['date'].'">'.$menu['date'].'</a><br/>';
+        echo '<a class="date_menu" href="section_menu/create/'.$menu['date'].'">'.$menu['date'].'</a><br/>';
     }
 }
 ?>

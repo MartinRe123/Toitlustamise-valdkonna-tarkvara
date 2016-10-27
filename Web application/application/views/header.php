@@ -13,7 +13,7 @@
 if($this->session->userdata('logged_in')){
      	$session_data = $this->session->userdata('username');
      	echo 'Oled sisse loginud kasutajaga <b>'.$session_data.'</b>';
-        echo '<br/><a href="'.base_url().'index.php/login/logout">Logi välja</a>';
+        echo '<br/><a id ="logivalja" href="'.base_url().'index.php/login/logout">Logi välja</a>';
  } ?>
 </p>
 <a id="logo" href="<?php echo base_url(); ?>index.php/home"><img src="/images/haigla_logo.png"></a>

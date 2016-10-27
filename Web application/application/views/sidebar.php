@@ -26,23 +26,23 @@
   <tr>
     <td class="td_"><a class="sidebar_a" href="<?php echo base_url(); ?>index.php/kitchen_menu"><?php echo $this->lang->line("kitchen_menus"); ?></a></td>
   </tr>
-  <tr>
-    <td class="td_"><a class="sidebar_a" href="<?php base_url() ?>">Raportid</a></td>
+   <tr>
+    <td class="td_"><a class="sidebar_a" href="<?php echo base_url() ?>index.php/kitchen_menu/create"><?php echo $this->lang->line("add_menu"); ?></a></td>
   </tr>
   <tr>
-    <td class="td_"><a class="sidebar_a" href="<?php base_url() ?>">Arhiiv</a></td>
+    <td class="td_"><a class="sidebar_a" href="<?php base_url() ?>"><?php echo $this->lang->line("raports"); ?></a></td>
   </tr>
   <tr>
-    <td class="td_"><a class="sidebar_a" href="<?php base_url() ?>">Vestlus</a></td>
+    <td class="td_"><a class="sidebar_a" href="<?php base_url() ?>"><?php echo $this->lang->line("archive"); ?></a></td>
   </tr>
   <tr>
-    <td class="td_"><a class="sidebar_a" href="<?php base_url() ?>">Muuda parooli</a></td>
-  </tr>
-  <tr>
-    <td class="td_"><a class="sidebar_a" href="<?php base_url() ?>">Lisa uus menüü</a></td>
+    <td class="td_"><a class="sidebar_a" href="<?php base_url() ?>"><?php echo $this->lang->line("chat"); ?></a></td>
   </tr>
    <tr>
-    <td class="td_"><a class="sidebar_a" href="<?php base_url() ?>">Tellimus</a></td>
+    <td class="td_"><a class="sidebar_a" href="<?php echo base_url() ?>index.php/register"><?php echo $this->lang->line("register"); ?></a></td>
+  </tr>
+  <tr>
+    <td class="td_"><a class="sidebar_a" href="<?php base_url() ?>"><?php echo $this->lang->line("change_password"); ?></a></td>
   </tr>
    <tr>
     <td class="td_"><a class="sidebar_a" href="<?php base_url() ?>/index.php/about"><?php echo $this->lang->line("about_page"); ?></a></td>
