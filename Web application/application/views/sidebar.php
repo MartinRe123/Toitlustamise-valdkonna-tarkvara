@@ -24,28 +24,50 @@
 <br>
 <table id="sidebar_table" >
   <tr>
-    <td class="td_"><a class="sidebar_a" href="<?php echo base_url(); ?>index.php/kitchen_menu"><?php echo $this->lang->line("kitchen_menus"); ?></a></td>
+   <?php if($this->session->userdata('logged_in')){
+		echo '<td class="td_"><a class="sidebar_a" href="'.base_url().'index.php/kitchen_menu">'.$this->lang->line("kitchen_menus").'</a></td>';
+   }
+   ?>
+  </tr>
+   <?php if($this->session->userdata('logged_in') && ($this->session->userdata('role') == 'kokk' || $this->session->userdata('role') == 'admin')){
+		echo '<tr><td class="td_"><a class="sidebar_a" href="'.base_url().'index.php/kitchen_menu/create">'.$this->lang->line("add_menu").'</a></td></tr>';
+   }
+   ?>
+  <tr>
+   <?php if($this->session->userdata('logged_in')){
+		echo '<td class="td_"><a class="sidebar_a" href="'.base_url().'">'.$this->lang->line("raports").'</a></td>';
+   }
+   ?>
+  </tr>
+  <tr>
+   <?php if($this->session->userdata('logged_in')){
+		echo '    <td class="td_"><a class="sidebar_a" href="'.base_url().'">'.$this->lang->line("archive").'</a></td>';
+   }
+   ?>
+  </tr>
+  <tr>
+   <?php if($this->session->userdata('logged_in')){
+		echo '<td class="td_"><a class="sidebar_a" href="'.base_url().'">'.$this->lang->line("chat").'</a></td>';
+   }
+   ?>
   </tr>
    <tr>
-    <td class="td_"><a class="sidebar_a" href="<?php echo base_url() ?>index.php/kitchen_menu/create"><?php echo $this->lang->line("add_menu"); ?></a></td>
+   <?php if($this->session->userdata('logged_in') && $this->session->userdata('role') == 'admin'){
+		echo '<td class="td_"><a class="sidebar_a" href="'.base_url().'index.php/register">'.$this->lang->line("register").'</a></td>';
+   }
+   ?>
   </tr>
   <tr>
-    <td class="td_"><a class="sidebar_a" href="<?php base_url() ?>"><?php echo $this->lang->line("raports"); ?></a></td>
-  </tr>
-  <tr>
-    <td class="td_"><a class="sidebar_a" href="<?php base_url() ?>"><?php echo $this->lang->line("archive"); ?></a></td>
-  </tr>
-  <tr>
-    <td class="td_"><a class="sidebar_a" href="<?php base_url() ?>"><?php echo $this->lang->line("chat"); ?></a></td>
+   <?php if($this->session->userdata('logged_in')){
+		echo '<td class="td_"><a class="sidebar_a" href="'.base_url().'index.php/my_account/change_password">'.$this->lang->line("change_password").'</a></td>';
+   }
+   ?>
   </tr>
    <tr>
-    <td class="td_"><a class="sidebar_a" href="<?php echo base_url() ?>index.php/register"><?php echo $this->lang->line("register"); ?></a></td>
-  </tr>
-  <tr>
-    <td class="td_"><a class="sidebar_a" href="<?php base_url() ?>/index.php/my_account/change_password"><?php echo $this->lang->line("change_password"); ?></a></td>
-  </tr>
-   <tr>
-    <td class="td_"><a class="sidebar_a" href="<?php base_url() ?>/index.php/about"><?php echo $this->lang->line("about_page"); ?></a></td>
+   <?php if($this->session->userdata('logged_in')){
+		echo '<td class="td_"><a class="sidebar_a" href="'.base_url().'index.php/about">'.$this->lang->line("about_page").'</a></td>';
+   }
+   ?>
   </tr>
 </table>
 

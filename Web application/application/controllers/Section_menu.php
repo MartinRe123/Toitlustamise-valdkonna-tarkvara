@@ -2,23 +2,22 @@
 
 class Section_menu extends CI_Controller {
 
-        public function __construct(){
-            parent::__construct();
-    	    $this->load->library('session');
-            if(!$this->session->userdata('logged_in') || $this->session->userdata('role') == 'kitchen'){
-    		    redirect('home');    			
- 		    }
-        }
+	public function __construct(){
+		parent::__construct();
+		$this->load->library('session');
+		if(!$this->session->userdata('logged_in') || $this->session->userdata('role') == 'kokk' || $this->session->userdata('role') == 'admin'){
+			redirect('home');    			
+		}
+	}
 
 
 	public function index(){
 		$this->load->library('session');
-                $this->load->view('sidebar');
+        $this->load->view('sidebar');
 		$this->load->view('header');
-                $this->load->model('menu_model');
+        $this->load->model('menu_model');
 		$this->load->view('section_menu');
 		$this->load->view('footer');
-
 	}
 	
 	
@@ -48,12 +47,12 @@ class Section_menu extends CI_Controller {
         $array = $this->menu_model->get_section_menu($date, $section_name);
         if(empty($array)){
         	$this->load->library('session');
-                $this->load->view('sidebar');
+            $this->load->view('sidebar');
     		$this->load->view('header');
-                $this->load->model('menu_model');
+            $this->load->model('menu_model');
 	        $data['section_name'] = $section_name;
-                $data['date'] = $date;
-                $data['menu'] = $this->menu_model->get_kitchen_menu($date);
+            $data['date'] = $date;
+            $data['menu'] = $this->menu_model->get_kitchen_menu($date);
     		$this->load->view('create_section_menu', $data);
     		$this->load->view('footer'); 
         }else{

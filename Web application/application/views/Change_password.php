@@ -5,20 +5,20 @@
 	<tr><td>
 		Praegune parool <td><?=form_password(array("name"=>"cur_pw"))?>
 		<td> <?=form_error("cur_pw") ?>
-	</td></td>
+	</td></td></tr>
 	
 	<tr><td>
 		Uus parool <td><?=form_password(array("name"=>"new_pw"))?>
 		<td> <?=form_error("new_pw") ?>
-	</td></td>
+	</td></td></tr>
 	
 	<tr><td>
 		Korda uut parooli <td><?=form_password(array("name"=>"conf_pw"))?>
 		<td> <?=form_error("conf_pw") ?>
-	</td></td>
+	</td></td></tr>
 
 	<tr><td> <input type='submit' value='Kinnita' /></tr></td>
 	
-<table>
+</table>
 
 <?=form_close()?>

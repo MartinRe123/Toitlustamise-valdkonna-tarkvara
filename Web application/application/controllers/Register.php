@@ -3,26 +3,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Register extends CI_Controller {
 
-
+	public function __construct(){
+		parent::__construct();
+		$this->load->library('session');
+		if(!$this->session->userdata('logged_in') || $this->session->userdata('role') == 'kokk' || $this->session->userdata('role') == 'osakond'){
+			redirect('home');    			
+		}
+	}
+		
 	public function index(){
         $this->load->helper('url');
     	$this->load->helper('form');	
 		$this->load->library('form_validation');
-		$this->load->library('session');
-        
-        if($this->session->userdata('logged_in') && ($this->session->userdata('role') == 'admin')){
-            $this->load->view('sidebar');
-            $this->load->view('header');
-		    $this->load->view('register');
-		    $this->load->view('footer');
-        }else{
-            $data['notification_message'] = 'Pead olema sisse logitud admin kontoga, et kasutajaid registreerida';
-            $this->session->userdata('role');
-            $this->load->view('sidebar');
-            $this->load->view('header');
-            $this->load->view('login', $data);
-    	    $this->load->view('footer');
-        }
+		$this->load->library('session');     
+		$this->load->view('sidebar');
+		$this->load->view('header');
+		$this->load->view('register');
+		$this->load->view('footer');
 	}
 
 
