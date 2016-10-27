@@ -42,7 +42,7 @@
     <td class="td_"><a class="sidebar_a" href="<?php echo base_url() ?>index.php/register"><?php echo $this->lang->line("register"); ?></a></td>
   </tr>
   <tr>
-    <td class="td_"><a class="sidebar_a" href="<?php base_url() ?>"><?php echo $this->lang->line("change_password"); ?></a></td>
+    <td class="td_"><a class="sidebar_a" href="<?php base_url() ?>/index.php/my_account/change_password"><?php echo $this->lang->line("change_password"); ?></a></td>
   </tr>
    <tr>
     <td class="td_"><a class="sidebar_a" href="<?php base_url() ?>/index.php/about"><?php echo $this->lang->line("about_page"); ?></a></td>
