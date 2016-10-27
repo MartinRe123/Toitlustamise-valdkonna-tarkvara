@@ -2,8 +2,8 @@
     
 <table id="langs" >
 <tr>
-<td><a href='<?php echo base_url(); ?>index.php/langswitch/switchLanguage/english'><img src="/images/english.png" width="30" height="16" border="0"></a></td>
 <td><a href='<?php echo base_url(); ?>index.php/langswitch/switchLanguage/estonian'><img src="/images/estonian.png" width="30" height="16" border="0"></a></td>
+<td><a href='<?php echo base_url(); ?>index.php/langswitch/switchLanguage/english'><img src="/images/english.png" width="30" height="16" border="0"></a></td>
 <td><a href='<?php echo base_url(); ?>index.php/langswitch/switchLanguage/russian'><img src="/images/russian.png" width="30" height="16" border="0"></a></td>
 </tr>
 </table>

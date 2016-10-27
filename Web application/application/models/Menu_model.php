@@ -18,7 +18,14 @@ class Menu_model extends CI_Model {
     
     public function get_kitchen_menus(){
         $this->load->database();
-        $sql = 'SELECT * FROM kitchen_menu';
+        $sql = 'SELECT * FROM kitchen_menu WHERE date >= "'.date("Y-m-d").'" ORDER BY date ASC';
+        $query = $this->db->query($sql);
+	    return $query->result_array();
+    }
+	
+	public function get_kitchen_menus_archive(){
+        $this->load->database();
+        $sql = 'SELECT * FROM kitchen_menu ORDER BY date ASC';
         $query = $this->db->query($sql);
 	    return $query->result_array();
     }
@@ -26,6 +33,13 @@ class Menu_model extends CI_Model {
     public function get_section_menu($date, $section_name){
         $this->load->database();
         $sql = 'SELECT * FROM section_menu WHERE date ="'.$date.'" AND section_name="'.$section_name.'"';
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+	
+	public function get_orders($date){
+        $this->load->database();
+        $sql = 'SELECT * FROM section_menu WHERE date ="'.$date.'"';
         $query = $this->db->query($sql);
         return $query->result_array();
     }
@@ -49,12 +63,23 @@ class Menu_model extends CI_Model {
         $this->db->query($sql);		
 	}
 	
-	public function delete_kitchen_menu($date, $section_name){
+	public function delete_order($date, $section_name){
 		$this->load->database();
         $sql = 'DELETE FROM section_menu WHERE date = "'.$date.'" AND section_name = "'.$section_name.'"';
         $this->db->query($sql);	
 	}
 	
+	public function delete_kitchen_menu($date, $section_name){
+		$this->load->database();
+        $sql = 'DELETE FROM kitchen_menu WHERE date = "'.$date.'"';
+        $this->db->query($sql);	
+	}
+
+	public function edit_kitchen_menu($date, $breakfast, $lunch, $supper){
+		$this->load->database();
+        $sql = 'UPDATE kitchen_menu SET breakfast="'.$breakfast.'", lunch="'.$lunch.'", supper="'.$supper.'" WHERE date="'.$date.'"';
+        $this->db->query($sql);		
+	}	
 }
 	
 

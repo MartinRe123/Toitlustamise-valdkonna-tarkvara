@@ -9,33 +9,27 @@
 	<input type="date" value="<?php echo date("Y-m-d"); ?>" name="date" min="<?php echo date("Y-m-d"); ?>"><br/>
 		
 		<table>
-			<td class="kitchen-menu_column">
+			<td class="kitchen_menu_column">
 				<table id="b">
-					<tr id="b_row_0">
-						<p>Hommikusöök</p>
-						Toit:<input id="b_0" type="text"><br/> Koostis:<br/><textarea id="b_c_0" rows="4" cols="50"></textarea><br/>
-					</tr>
+					<p>Hommikusöök</p>
+					Toit:<input id="b_0" type="text"><br/> Koostis:<br/><textarea id="b_c_0" rows="4" cols="50"></textarea><br/>
 				</table>
 				<button type="button" onClick="oneMore('b');" >+</button><br/>
 			</td>
 
-			<td class="kitchen-menu_column">
+			<td class="kitchen_menu_column">
 				<table id="l">
-					<tr id="l_row_0">
-						<p>Lõunasöök</p>
-						Toit:<input id="l_0" type="text"><br/> Koostis:<br/><textarea id="l_c_0" rows="4" cols="50"></textarea><br/>
-					</tr>
+					<p>Lõunasöök</p>
+					Toit:<input id="l_0" type="text"><br/> Koostis:<br/><textarea id="l_c_0" rows="4" cols="50"></textarea><br/>
 				</table>
 				<button type="button" onClick="oneMore('l');" >+</button><br/>
 			</td>
 
 
-			<td class="kitchen-menu_column">
+			<td class="kitchen_menu_column">
 				<table id="s">
-					<tr id="s_row_0">
-						<p>Õhtusöök</p>
-						Toit:<input id="s_0" type="text"><br/> Koostis:<br/><textarea id="s_c_0" rows="4" cols="50"></textarea><br/>
-					</tr>
+					<p>Õhtusöök</p>
+					Toit:<input id="s_0" type="text"><br/> Koostis:<br/><textarea id="s_c_0" rows="4" cols="50"></textarea><br/>
 				</table>
 				<button type="button" onClick="oneMore('s');" >+</button><br/>
 			</td>

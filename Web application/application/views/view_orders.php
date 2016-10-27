@@ -1,24 +1,23 @@
-<?php echo '<h1>'.$section_name.' menüü kuupäeval '.$date.'</h1>';?>
-</br>
-<a href="<?php base_url() ?>/index.php/kitchen_menu">Tagasi menüüde lehele</a>
-
 <?php 
+	echo '<h1>'.$date.'</h1>';
+	echo '<a href="'.base_url().'index.php/kitchen_menu">Tagasi eelmisele lehele</a>';
 
-    $array_order = $order[0];	
+foreach ($orders as $section_order){
+	echo '<h1>'.$section_order['section_name'].'</h1>';
 	
-	$comments = $array_order['comments'];
+	$comments = $section_order['comments'];
 	$breakfast_array = array();
 	$lunch_array = array();
 	$supper_array = array();
 	
-	if(!empty($array_order['breakfast'])){
-		$breakfast_array = explode(';', $array_order['breakfast']);
+	if(!empty($section_order['breakfast'])){
+		$breakfast_array = explode(';', $section_order['breakfast']);
 	}
-	if(!empty($array_order['lunch'])){
-		$lunch_array = explode(';', $array_order['lunch']);
+	if(!empty($section_order['lunch'])){
+		$lunch_array = explode(';', $section_order['lunch']);
 	}
-	if(!empty($array_order['supper'])){
-	    $supper_array = explode(';', $array_order['supper']);
+	if(!empty($section_order['supper'])){
+	    $supper_array = explode(';', $section_order['supper']);
 	}
 	
 	$max_rows = max(count($breakfast_array), count($lunch_array), count($supper_array));
@@ -47,10 +46,7 @@
 	}
 	echo '</table>';
 	echo '<p>Lisamärkused:</p>';
-	echo '<textarea name="comments" rows="4" cols="50" disabled>'.$comments.'</textarea><br/>';
-	
+	echo '<textarea name="comments" rows="4" cols="50" disabled>'.$comments.'</textarea><br/><br/><br/>';
+}
+
 ?>
-
-
-<a href="<?php base_url() ?>/index.php/section_menu/edit/<?php echo $date ?>">Muuda tellimust</a>
-<a onclick="deleteConfirmation(this, '<?php base_url() ?>/index.php/section_menu/delete/<?php echo $date; ?>');" href="">Kustuta tellimus</a>

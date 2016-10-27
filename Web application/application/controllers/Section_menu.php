@@ -28,20 +28,20 @@ class Section_menu extends CI_Controller {
 		$data['order'] = $this->menu_model->get_section_menu($date, $section_name);
 		if(!empty($data['order'])){
 			$this->load->library('session');
-                        $this->load->view('sidebar');
-    		        $this->load->view('header');
-                        $this->load->model('menu_model');
+            $this->load->view('sidebar');
+    		$this->load->view('header');
+            $this->load->model('menu_model');
 			$data['section_name'] = $section_name;
-                        $data['date'] = $date;
-                        $data['kitchen'] = $this->menu_model->get_kitchen_menu($date);
-    		        $this->load->view('section_menu_view', $data);
-    		        $this->load->view('footer'); 
+            $data['date'] = $date;
+            $data['kitchen'] = $this->menu_model->get_kitchen_menu($date); //ülearune rida??
+    		$this->load->view('section_menu_view', $data);
+    		$this->load->view('footer'); 
 		}else{
 			redirect('kitchen_menu');
 		}
 	}
     
-    
+
     public function create($date){
         $this->load->model('menu_model');
 		$section_name = $this->session->userdata('section');
@@ -116,7 +116,7 @@ class Section_menu extends CI_Controller {
         $data['order'] = $this->menu_model->get_section_menu($date, $section_name);
 		if(!empty($data['order'])){
 			$this->load->library('session');
-                        $this->load->view('sidebar');
+            $this->load->view('sidebar');
     		$this->load->view('header');
             $this->load->model('menu_model');
 			$data['section_name'] = $section_name;
@@ -184,7 +184,7 @@ class Section_menu extends CI_Controller {
 	public function delete($date){
 		$this->load->model('menu_model');
 		$section_name = $this->session->userdata('section');
-		$this->menu_model->delete_kitchen_menu($date, $section_name); //arvatavasti osakond juurde lisada vaja, muidu võib vale asja kustutada (kellegi teise menüü)
+		$this->menu_model->delete_order($date, $section_name);
 		redirect('kitchen_menu');
 	}
 }

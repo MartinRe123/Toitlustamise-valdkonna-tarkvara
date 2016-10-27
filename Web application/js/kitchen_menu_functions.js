@@ -1,11 +1,7 @@
 function oneMore(meal){
 	var i = 0;
-	var row = 0;
 	while (document.getElementById(meal+"_"+i) != null){
 		i++;
-	}
-	while (document.getElementById(meal+"_row_"+row) != null){
-		row++;
 	}
 	
 	var table = document.getElementById(meal);

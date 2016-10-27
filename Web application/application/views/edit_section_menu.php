@@ -54,7 +54,7 @@ if(!empty($menu)){
     }
     echo '</table><br/><p>Lisamärkused:</p>';
 	echo '<textarea name="comments" rows="4" cols="50">'.$comments.'</textarea><br/>';
-	echo '<input type="submit" value="Muuda tellimust" onclick="addAllCount();"></form>';
+	echo '<input type="submit" value="Salvesta muudatus" onclick="addAllCount();"></form>';
 	
 	echo '<script type="text/javascript"> fillSelected("'.$order_breakfast.'", "'.$order_lunch.'", "'.$order_supper.'"); </script>';
 }
