@@ -41,5 +41,5 @@
 	
 
 	<input type="submit" value="Salvesta menüü">
-</form>';
+</form>
 
