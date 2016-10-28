@@ -20,7 +20,7 @@ $lang['role'] = 'Role';
 $lang['admin'] = 'Administrator';
 $lang['chef'] = 'Chef';
 $lang['department'] = 'Department';
-$lang['department'] = 'Department name';
+$lang['department_name'] = 'Department name';
 $lang['submit'] = 'Submit';
 $lang['remove_all'] = 'Remove all';
 

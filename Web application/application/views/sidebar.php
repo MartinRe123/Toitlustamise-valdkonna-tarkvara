@@ -18,8 +18,17 @@
 
 <div class="sidebar">  
 <br> 
-<br>             
-<h1>OSAKOND</h1>
+<br>          
+<?php 
+if ($this->session->userdata('role') == 'kokk'){
+	echo '<h1>'.$this->lang->line("chef").'</h1>';
+}else if($this->session->userdata('role') == 'osakond'){
+	echo '<h1>'.$this->lang->line("department").'</h1>';
+	echo '<h2>'.$this->session->userdata('section').'</h2>';
+}else if($this->session->userdata('role') == 'admin'){
+	echo '<h1>'.$this->lang->line("admin").'</h1>';
+}
+?>   
 <br>
 <br>
 <table id="sidebar_table" >

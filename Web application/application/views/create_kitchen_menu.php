@@ -40,6 +40,6 @@
 	<input id="supper_result" name="supper" type="hidden" value="">
 	
 
-	<input type="submit" value="Saada tellimus">
+	<input type="submit" value="Salvesta menüü">
 </form>';
 
