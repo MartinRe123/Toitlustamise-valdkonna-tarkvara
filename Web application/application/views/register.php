@@ -19,7 +19,7 @@
 <label for="new_password_again"><?php echo $this->lang->line("password_again"); ?>: </label>
 <input type="password" id="new_password_again" name="new_password_again" />
 
-<label for="new_email"<?php echo $this->lang->line("email"); ?>: </label>
+<label for="new_email"><?php echo $this->lang->line("email"); ?>: </label>
 <input type="text" id="new_email" name="new_email" value="<?php echo set_value('new_email'); ?>" />
 
 <label for="new_role"><?php echo $this->lang->line("role"); ?>: </label>
