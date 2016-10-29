@@ -16,8 +16,8 @@
 			if ( $this->form_validation->run() != true )
 			{
 			$this->load->library('session');
-            $this->load->view('sidebar');
 			$this->load->view('header');
+			$this->load->view('sidebar');
 			$this->load->view("Change_password");
 			$this->load->view('footer');
 			} else {

@@ -16,8 +16,8 @@ class Register extends CI_Controller {
     	$this->load->helper('form');	
 		$this->load->library('form_validation');
 		$this->load->library('session');     
-		$this->load->view('sidebar');
 		$this->load->view('header');
+		$this->load->view('sidebar');
 		$this->load->view('register');
 		$this->load->view('footer');
 	}
@@ -36,8 +36,8 @@ class Register extends CI_Controller {
 		
 
    			if ($this->form_validation->run() == FALSE){
-                            $this->load->view('sidebar');
 		    	$this->load->view('header');
+				$this->load->view('sidebar');
 		        $this->load->view('register');
 		        $this->load->view('footer');
 		    }else{
@@ -49,8 +49,8 @@ class Register extends CI_Controller {
 					'section'      => $this->input->post('new_section'),
                 );
 			    $this->register_model->create_new_user($user_array); 
-                            $this->load->view('sidebar');
                 $this->load->view('header');
+				$this->load->view('sidebar');
 		        $this->load->view('registration_complete');
 		        $this->load->view('footer');
         	}

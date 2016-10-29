@@ -17,8 +17,8 @@ class Kitchen_menu extends CI_Controller {
 			$this->load->helper('form');	
 			$this->load->library('form_validation');
 			$this->load->library('session');
-			$this->load->view('sidebar');
 			$this->load->view('header');
+			$this->load->view('sidebar');
 			$this->load->model('menu_model');
 			$data['kitchen_menus'] = $this->menu_model->get_kitchen_menus();
 			$data['section_name'] = $this->session->userdata('section');
@@ -36,8 +36,8 @@ class Kitchen_menu extends CI_Controller {
 			$this->load->helper('form');	
 			$this->load->library('form_validation');
 			$this->load->library('session');
-			$this->load->view('sidebar');
 			$this->load->view('header');
+			$this->load->view('sidebar');
 			$this->load->model('menu_model');
 			$data['dates'] = $this->menu_model->get_created_dates(date("Y-m-d"));
 			$data['kitchen_menus'] = $this->menu_model->get_kitchen_menus();
@@ -70,8 +70,8 @@ class Kitchen_menu extends CI_Controller {
 			$this->load->model('menu_model');
 			$role = $this->session->userdata('role');
 			$this->load->library('session');
-			$this->load->view('sidebar');
 			$this->load->view('header');
+			$this->load->view('sidebar');
 			$this->load->model('menu_model');
 			$data['date'] = $date;
 			$data['orders'] = $this->menu_model->get_orders($date);
@@ -86,8 +86,8 @@ class Kitchen_menu extends CI_Controller {
 		}else{
 			$this->load->model('menu_model');
 			$this->load->library('session');
-			$this->load->view('sidebar');
 			$this->load->view('header');
+			$this->load->view('sidebar');
 			$this->load->model('menu_model');
 			$data['date'] = $date;
 			$data['menu'] = $this->menu_model->get_kitchen_menu($date);
@@ -112,8 +112,8 @@ class Kitchen_menu extends CI_Controller {
 			redirect('home');    			
 		}else{
 			$this->load->library('session');
-			$this->load->view('sidebar');
 			$this->load->view('header');
+			$this->load->view('sidebar');
 			$this->load->model('menu_model');
 			$data['date'] = $date;
 			$data['menu'] = $this->menu_model->get_kitchen_menu($date);

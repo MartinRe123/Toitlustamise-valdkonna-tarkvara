@@ -1,35 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" xml:lang="en">
 
-
-        <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>Rakendus</title>
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>styles/style.css">
-		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-
-<script type="text/javascript" src="<?php echo base_url(); ?>js/section_menu_functions.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>js/kitchen_menu_functions.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>js/registration_functions.js"></script>
-
-
-
-</head>
-<body>
 
 <div class="sidebar">  
-<br> 
-<br>          
-<?php 
-if ($this->session->userdata('role') == 'kokk'){
-	echo '<h1>'.$this->lang->line("chef").'</h1>';
-}else if($this->session->userdata('role') == 'osakond'){
-	echo '<h1>'.$this->lang->line("department").'</h1>';
-	echo '<h2>'.$this->session->userdata('section').'</h2>';
-}else if($this->session->userdata('role') == 'admin'){
-	echo '<h1>'.$this->lang->line("admin").'</h1>';
-}
-?>   
-<br>
+
 <br>
 <table id="sidebar_table" >
   <tr>

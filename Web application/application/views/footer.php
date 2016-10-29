@@ -1,11 +1,10 @@
 </div>
 <div class="footer">                
-<div class="footer"> 
 <table width="100%">
 <tr>
-<td>VALGA HAIGLA  AS</td>
-<td>info@valgahaigla.ee </td>
-<td>Kujundus ja veebiarendus: </td>
+<td><b>VALGA HAIGLA  AS</b></td>
+<td><b>info@valgahaigla.ee</b></td>
+<td><b>Kujundus ja veebiarendus: </b></td>
 </tr> 
 <tr>
 <td>Peetri 2, Valga 68206</td>
