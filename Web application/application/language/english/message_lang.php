@@ -23,6 +23,6 @@ $lang['department'] = 'Department';
 $lang['department_name'] = 'Department name';
 $lang['submit'] = 'Submit';
 $lang['remove_all'] = 'Remove all';
-
+$lang['kitchen_menu_notification'] = 'Please insert atleast one food choice for each meal.';
 
 ?>

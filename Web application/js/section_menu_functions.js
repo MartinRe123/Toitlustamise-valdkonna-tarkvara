@@ -54,7 +54,7 @@ function fillSelected (b_i, l_i, s_i){
 //selection_info contains info about selected foods in meal. <name>=<description>=<count>;<name>=<description>=<count>;...
 function fillMeal (meal, selection_info){
 	var i = 0;
-	while (document.getElementById(meal+"_"+i) != null){ //hommikusöögi jaoks
+	while (document.getElementById(meal+"_"+i) != null){
 		var t = document.getElementById(meal+"_"+i);
 		var value = t.value;	
 		var array = selection_info.split(";");

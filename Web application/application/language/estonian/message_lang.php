@@ -23,5 +23,5 @@ $lang['department'] = 'Osakond';
 $lang['department_name'] = 'Osakonna nimi';
 $lang['submit'] = 'Valmis';
 $lang['remove_all'] = 'Eemalda kõik';
-
+$lang['kitchen_menu_notification'] = 'Palun lisage iga söögiaja juurde vähemalt üks toiduvalik.';
 ?>

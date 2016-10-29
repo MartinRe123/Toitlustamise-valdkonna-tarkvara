@@ -7,7 +7,7 @@
 	$breakfast_array = explode(';', $menu['breakfast']);
 	$lunch_array = explode(';', $menu['lunch']);
 	$supper_array = explode(';', $menu['supper']);
-echo '<form onsubmit="return saveKitchenMenu();" method="post" accept-charset="utf-8" action="/index.php/kitchen_menu/save_menu_edit/">';
+echo '<form onsubmit="return saveKitchenMenu(\''.$this->lang->line("kitchen_menu_notification").'\');" method="post" accept-charset="utf-8" action="/index.php/kitchen_menu/save_menu_edit/">';
 
 	echo '<label id="menu_date" for="date">Kuupäev: </label>';
 	echo '<input type="date" value="'.$menu['date'].'" name="date" min="'.date("Y-m-d").'"><br/>';

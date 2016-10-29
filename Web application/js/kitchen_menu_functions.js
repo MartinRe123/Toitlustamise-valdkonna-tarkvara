@@ -45,7 +45,7 @@ function getFoods(meal){
 	return m;
 }
 
-function saveKitchenMenu(){
+function saveKitchenMenu(message){
 	var date = document.getElementById("menu_date").value;
 	var breakfast = getFoods("b");
 	var lunch = getFoods("l");
@@ -53,8 +53,8 @@ function saveKitchenMenu(){
 	var breakfast_result = document.getElementById("breakfast_result");
 	var lunch_result = document.getElementById("lunch_result");
 	var supper_result = document.getElementById("supper_result");
-	if(breakfast == "" && lunch == "" && supper == ""){
-		alert("Tunub, et sul on jäänud kõik väljad täitmata.");
+	if(breakfast == "" || lunch == "" || supper == ""){
+		alert(message);
 		return false;
 	}else{
 

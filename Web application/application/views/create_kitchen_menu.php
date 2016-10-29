@@ -1,9 +1,9 @@
 <h1>See on köögi menüüde koostamise leht</h1>
 <a href="<?php base_url() ?>/index.php/kitchen_menu">Tagasi köögi menüüde lehele</a><br/><br/>
-<p>Koostisosad sisesta eraldi ridadele.</p>
+<h2>Koostisosad sisesta eraldi ridadele.</h2>
 
 
-<form onsubmit="return saveKitchenMenu();" method="post" accept-charset="utf-8" action="/index.php/kitchen_menu/save_menu">
+<form onsubmit="return saveKitchenMenu('<?php echo $this->lang->line("kitchen_menu_notification"); ?>');" method="post" accept-charset="utf-8" action="/index.php/kitchen_menu/save_menu">
 
 	<label id="menu_date" for="date">Kuupäev: </label>
 	<input type="date" value="<?php echo date("Y-m-d"); ?>" name="date" min="<?php echo date("Y-m-d"); ?>"><br/>
