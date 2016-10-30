@@ -1,3 +1,4 @@
+<div class="content">
 <h1>See on köögi menüüde koostamise leht</h1>
 <a href="<?php base_url() ?>/index.php/kitchen_menu">Tagasi köögi menüüde lehele</a><br/><br/>
 <h2>Koostisosad sisesta eraldi ridadele.</h2>

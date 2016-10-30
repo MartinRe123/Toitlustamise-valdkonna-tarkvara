@@ -1,3 +1,4 @@
+<div class="content">
 <h1>See leht peaks kuvama osakonna poolt koostatud menüüsid</h1>
 
 <a href="<?php echo base_url(); ?>index.php/register">Regamine</a> 

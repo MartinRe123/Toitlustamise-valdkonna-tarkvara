@@ -1,3 +1,4 @@
+<div class="content">
 <h1>See on köögi menüüde kuvamise leht</h1>
 <p>Siin lehel kuvatakse köögi poolt sisestatud menüüd, mille alusel saab kokku panna osakondade menüüd</p>
 

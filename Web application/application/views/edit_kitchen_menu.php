@@ -1,3 +1,4 @@
+<div class="content">
 <?php echo 'Menüü kuupäeval '.$date.'</h1>';?>
 </br>
 <a href="<?php base_url() ?>/index.php/kitchen_menu">Tagasi menüüde lehele</a>
