@@ -12,7 +12,7 @@
 <!-- LOGIN FORM START -->
 <form method="post" accept-charset="utf-8" action="/index.php/login/start">
 
-<table class="reglog">
+<table cellspacing='3' cellpadding='3'>
 <tr>
 <th class="reglog"><label for="username"><?php echo $this->lang->line("username"); ?>: </label></th>
 <td><input type="text" id="username" name="username" value="<?php echo set_value('username'); ?>" /></td>

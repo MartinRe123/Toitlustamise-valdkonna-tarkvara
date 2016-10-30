@@ -10,7 +10,7 @@
 <form method="post" accept-charset="utf-8" action="/index.php/register/registrate">
 
 <div class="form_account_info">
-<table>
+<table cellspacing='3' cellpadding='3'>
 <tr>
 <th class="reglog"><label for="new_username"><?php echo $this->lang->line("username"); ?>: </label></th>
 <td><input type="text" id="new_username" name="new_username" value="<?php echo set_value('new_username'); ?>" /></td>
