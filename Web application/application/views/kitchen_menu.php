@@ -13,7 +13,7 @@ foreach ($kitchen_menus as $menu){
 	}else if($role == 'osakond'){
 		$array = $this->menu_model->get_section_menu($menu['date'], $section_name);
 		if(!empty($array)){
-			echo '<a href="section_menu/view/'.$menu['date'].'">'.$menu['date'].' [Koostatud]<br/>';
+			echo '<a href="section_menu/view/'.$menu['date'].'">'.$menu['date'].' [Koostatud]</a><br/>';
 		}else{
 			echo '<a href="section_menu/create/'.$menu['date'].'">'.$menu['date'].'</a><br/>';
 		}

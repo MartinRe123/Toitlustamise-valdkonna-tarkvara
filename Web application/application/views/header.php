@@ -51,7 +51,6 @@ if($this->session->userdata('logged_in')){
 </table>
 </div>
 
-<div class="content">
 
 
 
