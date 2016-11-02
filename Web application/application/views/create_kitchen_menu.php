@@ -9,7 +9,8 @@
 <form onsubmit="return saveKitchenMenu('<?php echo $this->lang->line("kitchen_menu_notification"); ?>', '<?php echo $date_info ?>', '<?php echo $this->lang->line("kitchen_menu_notification2"); ?>')" method="post" accept-charset="utf-8" action="/index.php/kitchen_menu/save_menu">
 
 	<label id="menu_date" for="date">Kuupäev: </label>
-	<input type="date" id="date" value="<?php echo date("Y-m-d"); ?>" name="date" min="<?php echo date("Y-m-d"); ?>"><br/>
+	<!-- <input type="date" id="date" value="<?php echo date("Y-m-d"); ?>" name="date" min="<?php echo date("Y-m-d"); ?>"><br/> -->
+		<input type="text" id="date" value="<?php echo date("Y-m-d"); ?>" name="date">
 		
 		<table>
 			<td class="kitchen_menu_column">

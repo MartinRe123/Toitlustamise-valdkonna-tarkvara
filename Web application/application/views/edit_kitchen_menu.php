@@ -11,8 +11,8 @@
 echo '<form onsubmit="return saveKitchenMenuEdit(\''.$this->lang->line("kitchen_menu_notification").'\', \''.$date_info.'\');" method="post" accept-charset="utf-8" action="/index.php/kitchen_menu/save_menu_edit/">';
 
 	echo '<label id="menu_date" for="date">Kuupäev: </label>';
-	echo '<input id="date" type="date" value="'.$menu['date'].'" name="date" min="'.date("Y-m-d").'"><br/>';
-	
+	//echo '<input id="date" type="date" value="'.$menu['date'].'" name="date" min="'.date("Y-m-d").'"><br/>';
+	echo '<input type="text" id="date" value="'.$menu['date'].'" name="date">';
 		echo '<table>';
 			echo '<td class="kitchen_menu_column">';
 				echo '<table id="b">';

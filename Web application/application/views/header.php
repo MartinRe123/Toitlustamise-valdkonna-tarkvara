@@ -5,12 +5,15 @@
         <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Valga</title>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>styles/style.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>styles/jquery-ui.css">
 		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-
+		
+<script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-ui.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/section_menu_functions.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/kitchen_menu_functions.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/registration_functions.js"></script>
-
+<script type="text/javascript" src="<?php echo base_url(); ?>js/date_picker.js"></script>
 
 
 </head>
