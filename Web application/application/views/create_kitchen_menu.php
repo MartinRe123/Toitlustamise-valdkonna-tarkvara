@@ -4,10 +4,12 @@
 <h2>Koostisosad sisesta eraldi ridadele.</h2>
 
 
-<form onsubmit="return saveKitchenMenu('<?php echo $this->lang->line("kitchen_menu_notification"); ?>');" method="post" accept-charset="utf-8" action="/index.php/kitchen_menu/save_menu">
+<div class="form_validation_errors"> <?php echo validation_errors(); ?> </div>
+
+<form onsubmit="return saveKitchenMenu('<?php echo $this->lang->line("kitchen_menu_notification"); ?>', '<?php echo $date_info ?>', '<?php echo $this->lang->line("kitchen_menu_notification2"); ?>')" method="post" accept-charset="utf-8" action="/index.php/kitchen_menu/save_menu">
 
 	<label id="menu_date" for="date">Kuupäev: </label>
-	<input type="date" value="<?php echo date("Y-m-d"); ?>" name="date" min="<?php echo date("Y-m-d"); ?>"><br/>
+	<input type="date" id="date" value="<?php echo date("Y-m-d"); ?>" name="date" min="<?php echo date("Y-m-d"); ?>"><br/>
 		
 		<table>
 			<td class="kitchen_menu_column">

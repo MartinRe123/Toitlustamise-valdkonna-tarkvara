@@ -24,5 +24,6 @@ $lang['department_name'] = 'Department name';
 $lang['submit'] = 'Submit';
 $lang['remove_all'] = 'Remove all';
 $lang['kitchen_menu_notification'] = 'Please insert atleast one food choice for each meal.';
+$lang['kitchen_menu_notification2'] = 'Menu for selected date is already created.';
 
 ?>

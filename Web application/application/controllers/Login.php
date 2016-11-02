@@ -71,10 +71,11 @@ class Login extends CI_Controller {
      
        
     function logout(){
-		$language = $this->session->userdata('site_lang');
    		$this->session->unset_userdata('logged_in');
+		$this->session->unset_userdata('username');
+   		$this->session->unset_userdata('role');
+   		$this->session->unset_userdata('section');
    		//session_destroy();
-		$this->session->set_userdata('site_lang', $language);
    		redirect('login');
  	}
 

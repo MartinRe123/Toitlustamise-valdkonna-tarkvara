@@ -24,5 +24,6 @@ $lang['department_name'] = 'название отдела';
 $lang['submit'] = 'Отправить';
 $lang['remove_all'] = 'убрать все';
 $lang['kitchen_menu_notification'] = 'Palun lisage iga söögiaja juurde vähemalt üks toiduvalik.';
+$lang['kitchen_menu_notification2'] = 'Valitud kuupäeva jaoks on menüü juba koostatud.';
 
 ?>

@@ -34,12 +34,22 @@ class Kitchen_menu extends CI_Controller {
 		}else{
 			$this->load->helper('url');
 			$this->load->helper('form');	
-			$this->load->library('form_validation');
 			$this->load->library('session');
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->model('menu_model');
-			$data['dates'] = $this->menu_model->get_created_dates(date("Y-m-d"));
+			$dates = $this->menu_model->get_created_dates(date("Y-m-d"));
+			$date = date("Y-m-d");
+			$data['date_info'] = "";
+			
+			foreach ($dates as $d){
+				if ($data['date_info'] == ""){
+					$data['date_info'] = $d['date'];
+				}else{
+					$data['date_info'] = $data['date_info'] . ';' .$d['date'];
+				}
+			}
+			
 			$data['kitchen_menus'] = $this->menu_model->get_kitchen_menus();
 			$data['section_name'] = $this->session->userdata('section');
 			$this->load->view('create_kitchen_menu', $data);

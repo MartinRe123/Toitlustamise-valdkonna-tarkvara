@@ -10,7 +10,7 @@ class Menu_model extends CI_Model {
 	
 	public function get_created_dates($current_date){
 		$this->load->database();
-        $sql = 'SELECT date FROM kitchen_menu WHERE date >="'.$current_date.'"';
+        $sql = 'SELECT date FROM kitchen_menu WHERE date >= "'.$current_date.'"';
 	    $query = $this->db->query($sql);
 	    return $query->result_array();
 	}
