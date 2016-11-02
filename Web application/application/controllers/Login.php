@@ -7,9 +7,7 @@ class Login extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$this->load->library('session');
-		//$this->load->model('login_model');
 		$this->load->model('Account_Validation','',TRUE);
-                #$this->load->database();
 	
 	 }
  	
@@ -21,7 +19,11 @@ class Login extends CI_Controller {
 			$this->load->view('sidebar');
 		    $this->load->view('home', $data);
 		    $this->load->view('footer');
- 		}else{
+ 		}else{ //kui pole veel sisse logitud
+			if (!isset($_SESSION['site_lang'])){
+				$this->session->set_userdata('site_lang', 'estonian');
+				redirect('login');
+			}
  	 	    $data['title'] = ucfirst($this->lang->line('LOGIN_TITLE'));
 		    $this->load->view('header');
 			$this->load->view('sidebar');
@@ -66,18 +68,13 @@ class Login extends CI_Controller {
      			return false;
    		}
  	}
-	
-	function test(){
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		print_r ($this->session->userdata);
-		$this->load->view('footer');
-	}
      
        
     function logout(){
+		$language = $this->session->userdata('site_lang');
    		$this->session->unset_userdata('logged_in');
-   		session_destroy();
+   		//session_destroy();
+		$this->session->set_userdata('site_lang', $language);
    		redirect('login');
  	}
 
