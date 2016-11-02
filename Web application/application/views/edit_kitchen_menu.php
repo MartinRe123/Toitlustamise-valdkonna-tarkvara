@@ -8,10 +8,10 @@
 	$breakfast_array = explode(';', $menu['breakfast']);
 	$lunch_array = explode(';', $menu['lunch']);
 	$supper_array = explode(';', $menu['supper']);
-echo '<form onsubmit="return saveKitchenMenu(\''.$this->lang->line("kitchen_menu_notification").'\');" method="post" accept-charset="utf-8" action="/index.php/kitchen_menu/save_menu_edit/">';
+echo '<form onsubmit="return saveKitchenMenuEdit(\''.$this->lang->line("kitchen_menu_notification").'\', \''.$date_info.'\');" method="post" accept-charset="utf-8" action="/index.php/kitchen_menu/save_menu_edit/">';
 
 	echo '<label id="menu_date" for="date">Kuupäev: </label>';
-	echo '<input type="date" value="'.$menu['date'].'" name="date" min="'.date("Y-m-d").'"><br/>';
+	echo '<input id="date" type="date" value="'.$menu['date'].'" name="date" min="'.date("Y-m-d").'"><br/>';
 	
 		echo '<table>';
 			echo '<td class="kitchen_menu_column">';
@@ -63,7 +63,7 @@ echo '<form onsubmit="return saveKitchenMenu(\''.$this->lang->line("kitchen_menu
 	echo '<input id="breakfast_result" name="breakfast" type="hidden" value="">';
 	echo '<input id="lunch_result" name="lunch" type="hidden" value="">';
 	echo '<input id="supper_result" name="supper" type="hidden" value="">';
-	
+	echo '<input name="previous_date" type="hidden" value="'.$date.'">';
 
 	echo '<input type="submit" value="Salvesta muudatus">';
 	

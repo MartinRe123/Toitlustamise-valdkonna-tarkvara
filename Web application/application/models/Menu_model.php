@@ -69,7 +69,7 @@ class Menu_model extends CI_Model {
         $this->db->query($sql);	
 	}
 	
-	public function delete_kitchen_menu($date, $section_name){
+	public function delete_kitchen_menu($date){
 		$this->load->database();
         $sql = 'DELETE FROM kitchen_menu WHERE date = "'.$date.'"';
         $this->db->query($sql);	

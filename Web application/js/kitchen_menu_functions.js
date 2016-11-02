@@ -45,9 +45,33 @@ function getFoods(meal){
 	return m;
 }
 
+function saveKitchenMenuEdit(message_fill_meals, dates){
+	var used_dates = dates.split(";");
+	var date = document.getElementById("date").value;
+	var breakfast = getFoods("b");
+	var lunch = getFoods("l");
+	var supper = getFoods("s");
+	var breakfast_result = document.getElementById("breakfast_result");
+	var lunch_result = document.getElementById("lunch_result");
+	var supper_result = document.getElementById("supper_result");
+	if(breakfast == "" || lunch == "" || supper == ""){
+		alert(message_fill_meals);
+		return false;
+	}else{
+		breakfast_result.value = breakfast;
+		lunch_result.value = lunch;
+		supper_result.value = supper;
+		if(isInArray(date, used_dates)){
+			return confirm("Valitud kuupäevaks on juba menüü koostatud. Kas soovite teise menüü kustutada ja asendada sellega?");
+		}
+	}		
+	
+}
+
 function saveKitchenMenu(message_fill_meals, dates, message_date_used){
 	var used_dates = dates.split(";");
 	var date = document.getElementById("date").value;
+	
 	if(isInArray(date, used_dates)){
 			alert(message_date_used);
 			return false;

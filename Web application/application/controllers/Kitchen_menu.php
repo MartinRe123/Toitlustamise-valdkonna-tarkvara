@@ -111,8 +111,7 @@ class Kitchen_menu extends CI_Controller {
 			redirect('home');    			
 		}else{
 			$this->load->model('menu_model');
-			$section_name = $this->session->userdata('section');
-			$this->menu_model->delete_kitchen_menu($date, $section_name);
+			$this->menu_model->delete_kitchen_menu($date);
 			redirect('kitchen_menu');
 		}
 	}
@@ -127,6 +126,19 @@ class Kitchen_menu extends CI_Controller {
 			$this->load->model('menu_model');
 			$data['date'] = $date;
 			$data['menu'] = $this->menu_model->get_kitchen_menu($date);
+			
+			$dates = $this->menu_model->get_created_dates(date("Y-m-d"));
+			$data['date_info'] = "";
+			foreach ($dates as $d){
+				if ($d['date'] != $date){			
+					if ($data['date_info'] == ""){
+						$data['date_info'] = $d['date'];
+					}else{
+						$data['date_info'] = $data['date_info'] . ';' .$d['date'];
+					}
+				}
+			}
+			
 			$this->load->view('edit_kitchen_menu', $data);
 			$this->load->view('footer');
 		}
@@ -141,8 +153,18 @@ class Kitchen_menu extends CI_Controller {
 			$lunch = $this->input->post('lunch');
 			$supper = $this->input->post('supper');
 			$date = $this->input->post('date');
+			$previous_date = $this->input->post('previous_date');
 			$this->load->model('menu_model');
-			$this->menu_model->edit_kitchen_menu($date, $breakfast, $lunch, $supper);
+			if($previous_date == $date){ //kui leidub menüü sellel kuupäeval
+				$this->menu_model->edit_kitchen_menu($date, $breakfast, $lunch, $supper);
+			}else if(!empty($this->menu_model->get_kitchen_menu($date))){ //kui kuupäeva ei muudeta
+				$this->menu_model->edit_kitchen_menu($date, $breakfast, $lunch, $supper);
+				$this->menu_model->delete_kitchen_menu($previous_date);
+			}else{
+				$username = $this->session->userdata('username');
+				$this->menu_model->save_kitchen_menu($date, $breakfast, $lunch, $supper, $username);
+				$this->menu_model->delete_kitchen_menu($previous_date);
+			}
 			redirect('kitchen_menu/view/'.$date);
 		}
 	}
