@@ -31,7 +31,7 @@
 			if ( md5($this->input->post("cur_pw")) == $db_password) {
 				$fixed_pw = md5($this->input->post("new_pw"));
 				$update = $this->db->query("UPDATE `user` SET `password` = '$fixed_pw' WHERE `username` = '$db_id'") or die(mysqli_error());
-				redirect(base_url(),"refresh");
+				redirect('Passwd_changed',"refresh");
 			} else {
 				echo "Password is incorrect!";
 				$this->load->view("vChangePassword");
