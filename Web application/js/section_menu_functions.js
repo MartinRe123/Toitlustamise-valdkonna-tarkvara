@@ -15,26 +15,55 @@ function showTextbox(cbox) { //cbox on checkboxi objekt mis antakse onClickiga k
       }
 }
 
+function isNumeric(str) {
+    var reg = new RegExp('^[1-9][0-9]*$');
+    return reg.test(str);
+}
 
 //helper function for addCount(arg1). Removes recurrences.
 //meal = breakfast ("b"), lunch ("l"), supper ("s")
-function addCount(meal){
+function addCount(meal, message){
 	var i = 0;
+	var isCountCorrect = true;
+	var correctSelections = 0;
+	var done = [];
 	while (document.getElementById(meal+"_"+i) != null){
 		var b = document.getElementById(meal+"_"+i);
 		var b_c = document.getElementById(meal+"_"+i+"_c");
-		if (b.checked){
-			b.value = b.value + "=" + b_c.value;
+		if (b.checked && !done.indexOf(b.value) > -1){
+			if(isNumeric(b_c.value)){
+				done.push(b.value + "=" + b_c.value);
+				b.value = b.value.split("=")[0] + "=" + b.value.split("=")[1] + "=" + b_c.value;
+				correctSelections += 1;
+			}else{
+				alert(message + b.value.split("=")[0]);
+				isCountCorrect = false;
+			}
 		}
 		i++;
+	}
+	if(correctSelections > 0 && isCountCorrect){ //kõik valikud on korrektselt kirjas
+		return 1;
+	}else if(correctSelections == 0 && isCountCorrect){ //pole tehtud mitte ühtegi valikut selle toidukorra all
+		return 0;
+	}else{ //mingi koguse viga
+		return -1;
 	}
 }
 
 //adds amount to every food selected with checkbox. <food name>=<desc>=<count>.
-function addAllCount(){
-	addCount("b");
-	addCount("l");
-	addCount("s");
+function addAllCount(message_1, message_2){
+	var b = addCount("b", message_1);
+	var l = addCount("l", message_1);
+	var s = addCount("s", message_1);
+	if(b == -1 || l == -1 || s == -1){ //kui kuskil on mingi viga
+		return false;
+	}else if(b == 0 && l == 0 & s == 0){ //mitte kuskil pole tehtud valikuid (tühi tellimus)
+		alert(message_2);
+		return false;
+	}else{ //kui vähemalt ühele toidukorrale on tehtud korrektne tellimus.
+		return true;
+	}
 }
 
 
@@ -42,6 +71,7 @@ function addAllCount(){
 //b_i - breakfast information.
 //l_i - lunch information.
 //s_i - supper information.
+//returns true, if atleast one meal is chosen
 function fillSelected (b_i, l_i, s_i){
 	fillMeal("b", b_i);
 	fillMeal("l", l_i);

@@ -25,4 +25,6 @@ $lang['submit'] = 'Valmis';
 $lang['remove_all'] = 'Eemalda kõik';
 $lang['kitchen_menu_notification'] = 'Palun lisage iga söögiaja juurde vähemalt üks toiduvalik.';
 $lang['kitchen_menu_notification2'] = 'Valitud kuupäeva jaoks on menüü juba koostatud.';
+$lang['order_notification'] = 'Vigane kogus toidul: ';
+$lang['order_notification2'] = 'Tellimuse esitamiseks peab olema valitud vähemalt üks toit.';
 ?>

@@ -25,5 +25,6 @@ $lang['submit'] = 'Отправить';
 $lang['remove_all'] = 'убрать все';
 $lang['kitchen_menu_notification'] = 'Пожалуйста добовляйте на каждую еду менше хотя бы один блюдо.';
 $lang['kitchen_menu_notification2'] = 'На выранное число меню создавляена.';
-
+$lang['order_notification'] = 'Vigane kogus toidul: '; //umbes et Vigane kogus toidul: <toidu nimi>. see toidu nimi lisatakse hiljem ise.
+$lang['order_notification2'] = 'Tellimuse esitamiseks peab olema valitud vähemalt üks toit.';
 ?>
