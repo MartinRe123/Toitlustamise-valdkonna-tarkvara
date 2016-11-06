@@ -1,5 +1,4 @@
 <div class="content">
-<div class="block">
 <h1><?php echo $this->lang->line("register"); ?></h1>
 
 <div class="form_validation_errors"> <?php echo validation_errors(); ?> </div>

@@ -22,12 +22,6 @@
   </tr>
   <tr>
    <?php if($this->session->userdata('logged_in')){
-		echo '    <td class="td_"><a class="sidebar_a" href="'.base_url().'">'.$this->lang->line("archive").'</a></td>';
-   }
-   ?>
-  </tr>
-  <tr>
-   <?php if($this->session->userdata('logged_in')){
 		echo '<td class="td_"><a class="sidebar_a" href="'.base_url().'">'.$this->lang->line("chat").'</a></td>';
    }
    ?>
