@@ -10,7 +10,7 @@
 
 	<label id="menu_date" for="date">Kuupäev: </label>
 	<!-- <input type="date" id="date" value="<?php echo date("Y-m-d"); ?>" name="date" min="<?php echo date("Y-m-d"); ?>"><br/> -->
-		<input type="text" id="date" value="<?php echo date("Y-m-d"); ?>" name="date">
+		<input type="text" id="date" value="<?php echo date("Y-m-d"); ?>" name="date" readonly="readonly">
 		
 		<table>
 			<td class="kitchen_menu_column">
