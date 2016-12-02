@@ -194,6 +194,37 @@ td.section_menu_view{
    padding-left:5px;
    padding-right:5px;
 }
+table.raport_view{
+   border: 1px solid black;
+   border-radius: 5px;
+   text-align:center;
+   width:800px;
+   padding-bottom:10px;
+   padding-top:10px;
+   padding-left:10px;
+   padding-right:10px;
+}
+td.raport_view{
+   border-left: 1px solid black;
+   border-right: 1px solid black;
+   border-top: 1px solid black;
+   border-bottom: 1px solid black;
+   padding-bottom:5px;
+   padding-top:5px;
+   padding-left:5px;
+   padding-right:5px;
+}
+td.raport_view2{
+   border-left: 1px solid black;
+   border-right: 1px solid black;
+   border-top: 1px solid black;
+   border-bottom: 1px solid black;
+   padding-bottom:5px;
+   padding-top:5px;
+   padding-left:5px;
+   padding-right:5px;
+}
+
 
 /* Login page styles */
 
@@ -218,7 +249,7 @@ td.log_button{
 
 /* Buttons styles*/
 
-button, input[type=submit] {
+button, input[type=submit], input[type=button] {
    
     text-align: center;
     text-decoration: none;
