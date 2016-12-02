@@ -18,16 +18,16 @@
 		<table>
 			<td class="kitchen_menu_view">
 				<table id="b">
-					<p>Hommikusöök</p>
-					Toit:<input id="b_0" type="text"><br/> Koostis:<br/><textarea id="b_c_0" rows="4" cols="50"></textarea><br/>
+					<b><p><?php echo $this->lang->line("breakfast"); ?></p></b>
+					<b><?php echo $this->lang->line("food"); ?>: </b><input id="b_0" type="text"><br/> <b><?php echo $this->lang->line("ingredients"); ?>: </b><br/><textarea id="b_c_0" rows="4" cols="32"></textarea><br/>
 				</table>
 				<button type="button" onClick="oneMore('b');" >+</button><br/>
 			</td>
 
 			<td class="kitchen_menu_view">
 				<table id="l">
-					<p>Lõunasöök</p>
-					Toit:<input id="l_0" type="text"><br/> Koostis:<br/><textarea id="l_c_0" rows="4" cols="50"></textarea><br/>
+					<b><p><?php echo $this->lang->line("lunch"); ?></p></b>
+					<b><?php echo $this->lang->line("food"); ?>: </b><input id="l_0" type="text"><br/> <b><?php echo $this->lang->line("ingredients"); ?>: </b><br/><textarea id="l_c_0" rows="4" cols="32"></textarea><br/>
 				</table>
 				<button type="button" onClick="oneMore('l');" >+</button><br/>
 			</td>
@@ -35,8 +35,8 @@
 
 			<td class="kitchen_menu_view">
 				<table id="s">
-					<p>Õhtusöök</p>
-					Toit:<input id="s_0" type="text"><br/> Koostis:<br/><textarea id="s_c_0" rows="4" cols="50"></textarea><br/>
+					<b><p><?php echo $this->lang->line("dinner"); ?></p></b>
+					<b><?php echo $this->lang->line("food"); ?>: </b><input id="s_0" type="text"><br/> <b><?php echo $this->lang->line("ingredients"); ?>: </b><br/><textarea id="s_c_0" rows="4" cols="32"></textarea><br/>
 				</table>
 				<button type="button" onClick="oneMore('s');" >+</button><br/>
 			</td>

@@ -13,10 +13,6 @@ html {
   box-sizing: inherit;
 }
 
-
-.kitchen_menu_column{
-	vertical-align: top;
-}
 body {
   position: relative;
   margin: 0;
@@ -39,6 +35,7 @@ div.header{
     padding: 1rem;
 	text-align:center;
 	height:100%;
+	min-width: 1024px;
 	left:0;
 	right:0;
     background-image:url("/images/wall4.png");	
@@ -159,8 +156,43 @@ a.date_menu{
 	font-size: 18px;
 	font-weight: bolder;
 }
-table.menu_view{
-	
+table.kitchen_menu_view{
+   border: 2px solid #517b56;
+   /*border-radius: 5px;*/
+   text-align:center;
+   width:100%;
+   padding-bottom:10px;
+   padding-top:10px;
+   padding-left:10px;
+   padding-right:10px;
+   /*background-color: #1de28e;*/
+   /*background-image:url("/images/green_dust_scratch.png");*/	
+}
+td.kitchen_menu_view{
+   border: 1px solid #517b56;
+   border-radius: 5px;
+   padding-bottom:5px;
+   padding-top:5px;
+   padding-left:5px;
+   padding-right:5px;
+   vertical-align: top;
+}
+table.section_menu_view{
+   text-align:center;
+   width:100%;
+   padding-bottom:10px;
+   padding-top:10px;
+   padding-left:10px;
+   padding-right:10px;
+}
+td.section_menu_view{
+   text-align: left;
+   border: 1px solid black;
+   border-radius: 5px;
+   padding-bottom:5px;
+   padding-top:5px;
+   padding-left:5px;
+   padding-right:5px;
 }
 
 /* Login page styles */
@@ -201,7 +233,17 @@ button, input[type=submit] {
 	margin-top: 3px;
 	
 }
+#lingid{
+	font-size:16px;
+	text-decoration: none;
+	border: 2px solid #517b56;
+    border-radius: 5px ;
+	background-image:url("/images/green_dust_scratch.png");
+	margin-top: 10px;
+	padding: 3px;
+	color: black;
 
+}
 /**
  * Footer Styles
  */

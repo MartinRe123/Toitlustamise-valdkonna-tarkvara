@@ -45,11 +45,7 @@
 				
 				$breakfast_array = explode(';', $breakfast);
 				$lunch_array = explode(';', $lunch);
-				$supper_array = explode(';', $supper);
-				print_r($lunch_array);
-				print_r($supper_array);
-				
-				
+				$supper_array = explode(';', $supper);				
 				
 				echo '<h2>'.$section_name.' ('.$date.')</h2>';
 				$max_rows = max(count($breakfast_array), count($lunch_array), count($supper_array));
@@ -95,7 +91,7 @@
 				echo '</table>';
 				if($comments){
 					echo '<p>Lisamärkused:</p>';
-					echo '<textarea name="comments" rows="4" cols="50" disabled>'.$comments.'</textarea>';
+					echo '<p>'.$comments.'</p>';
 				}
 				echo '<br/><hr><br/><br/></div>';
 			}
