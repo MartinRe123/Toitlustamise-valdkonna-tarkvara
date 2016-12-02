@@ -13,7 +13,7 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>js/section_menu_functions.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/kitchen_menu_functions.js"></script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/registration_functions.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>js/date_picker.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>js/raport_functions.js"></script>
 
 
 </head>

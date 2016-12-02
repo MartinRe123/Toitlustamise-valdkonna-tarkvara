@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'home';
 $route['kitchen_menu'] = 'kitchen_menu';
+$route['raport'] = 'raport';
 $route['section_menu'] = 'section_menu';
 $route['login'] = 'login';
 $route['register'] = 'register';

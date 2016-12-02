@@ -1,3 +1,6 @@
+<script type="text/javascript" src="<?php echo base_url(); ?>js/date_picker_kitchen.js"></script>
+
+
 <div class="content">
 <h1>See on köögi menüüde koostamise leht</h1>
 <a id="lingid" href="<?php base_url() ?>/index.php/kitchen_menu">Tagasi köögi menüüde lehele</a><br/><br/>
@@ -15,16 +18,16 @@
 		<table>
 			<td class="kitchen_menu_view">
 				<table id="b">
-					<b><p><?php echo $this->lang->line("breakfast"); ?></p></b>
-					<b><?php echo $this->lang->line("food"); ?>: </b><input id="b_0" type="text"><br/> <b><?php echo $this->lang->line("ingredients"); ?>: </b><br/><textarea id="b_c_0" rows="4" cols="32"></textarea><br/>
+					<p>Hommikusöök</p>
+					Toit:<input id="b_0" type="text"><br/> Koostis:<br/><textarea id="b_c_0" rows="4" cols="50"></textarea><br/>
 				</table>
 				<button type="button" onClick="oneMore('b');" >+</button><br/>
 			</td>
 
 			<td class="kitchen_menu_view">
 				<table id="l">
-					<b><p><?php echo $this->lang->line("lunch"); ?></p></b>
-					<b><?php echo $this->lang->line("food"); ?>: </b><input id="l_0" type="text"><br/> <b><?php echo $this->lang->line("ingredients"); ?>: </b><br/><textarea id="l_c_0" rows="4" cols="32"></textarea><br/>
+					<p>Lõunasöök</p>
+					Toit:<input id="l_0" type="text"><br/> Koostis:<br/><textarea id="l_c_0" rows="4" cols="50"></textarea><br/>
 				</table>
 				<button type="button" onClick="oneMore('l');" >+</button><br/>
 			</td>
@@ -32,8 +35,8 @@
 
 			<td class="kitchen_menu_view">
 				<table id="s">
-					<b><p><?php echo $this->lang->line("dinner"); ?></p></b>
-					<b><?php echo $this->lang->line("food"); ?>: </b><input id="s_0" type="text"><br/> <b><?php echo $this->lang->line("ingredients"); ?>: </b><br/><textarea id="s_c_0" rows="4" cols="32"></textarea><br/>
+					<p>Õhtusöök</p>
+					Toit:<input id="s_0" type="text"><br/> Koostis:<br/><textarea id="s_c_0" rows="4" cols="50"></textarea><br/>
 				</table>
 				<button type="button" onClick="oneMore('s');" >+</button><br/>
 			</td>

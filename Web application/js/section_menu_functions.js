@@ -2,7 +2,6 @@ function showTextbox(cbox) { //cbox on checkboxi objekt mis antakse onClickiga k
       if (cbox.checked) { //kui on checked
         var input = document.createElement("input"); //loob inputi <input>
         input.type = "text"; //inputi tüüp
-		input.size = 5;
 		input.name = (cbox.name.replace("[]","") + "_count");
 		input.id = cbox.id + "_c";
 		input.value = 1; //vaikeväärtus textboxile

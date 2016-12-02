@@ -1,8 +1,10 @@
+<script type="text/javascript" src="<?php echo base_url(); ?>js/date_picker_kitchen.js"></script>
+
+
 <div class="content">
-<?php echo '<h1>Menüü kuupäeval '.$date.'</h1>';?>
+<?php echo 'Menüü kuupäeval '.$date.'</h1>';?>
 </br>
-<a id="lingid" href="<?php base_url() ?>/index.php/kitchen_menu">Tagasi menüüde lehele</a>
-<br><br>
+<a href="<?php base_url() ?>/index.php/kitchen_menu">Tagasi menüüde lehele</a>
 
 <?php
 	$menu = $menu[0];
@@ -11,18 +13,18 @@
 	$supper_array = explode(';', $menu['supper']);
 echo '<form onsubmit="return saveKitchenMenuEdit(\''.$this->lang->line("kitchen_menu_notification").'\', \''.$date_info.'\');" method="post" accept-charset="utf-8" action="/index.php/kitchen_menu/save_menu_edit/">';
 
-	echo '<label id="menu_date" for="date"><b>Kuupäev: </b></label>';
+	echo '<label id="menu_date" for="date">Kuupäev: </label>';
 	//echo '<input id="date" type="date" value="'.$menu['date'].'" name="date" min="'.date("Y-m-d").'"><br/>';
 	echo '<input type="text" id="date" value="'.$menu['date'].'" name="date" readonly="readonly">';
 		echo '<table>';
-			echo '<td class="kitchen_menu_view">';
+			echo '<td class="kitchen_menu_column">';
 				echo '<table id="b">';
-					echo '<b><p>HOMMIKUSÖÖK</p></b>';
+					echo '<p>Hommikusöök</p>';
 						$i = 0;
 						foreach ($breakfast_array as $breakfast) {
 							if($breakfast != ""){
 								$breakfast_info = explode('=', $breakfast);
-								echo '<b>Toit: </b><input value="'.$breakfast_info[0].'" id="b_'.$i.'" type="text"><br/> <b>Koostis: </b><br/><textarea id="b_c_'.$i.'" rows="4" cols="32">'.$breakfast_info[1].'</textarea><br/>';
+								echo 'Toit:<input value="'.$breakfast_info[0].'" id="b_'.$i.'" type="text"><br/> Koostis:<br/><textarea id="b_c_'.$i.'" rows="4" cols="50">'.str_replace("|","\n",$breakfast_info[1]).'</textarea><br/>';
 								$i++;
 							}
 						}
@@ -30,14 +32,14 @@ echo '<form onsubmit="return saveKitchenMenuEdit(\''.$this->lang->line("kitchen_
 				echo '<button type="button" onClick="oneMore(\'b\');" >+</button><br/>';
 			echo '</td>';
 			
-			echo '<td class="kitchen_menu_view">';
+			echo '<td class="kitchen_menu_column">';
 				echo '<table id="l">';
-					echo '<b><p>LÕUNASÖÖK</p></b>';
+					echo '<p>Lõunasöök</p>';
 						$i = 0;
 						foreach ($lunch_array as $lunch) {
 							if($lunch != ""){
 								$lunch_info = explode('=', $lunch);
-								echo '<b>Toit: </b><input value="'.$lunch_info[0].'" id="l_'.$i.'" type="text"><br/> <b>Koostis: </b><br/><textarea id="l_c_'.$i.'" rows="4" cols="32">'.$lunch_info[1].'</textarea><br/>';
+								echo 'Toit:<input value="'.$lunch_info[0].'" id="l_'.$i.'" type="text"><br/> Koostis:<br/><textarea id="l_c_'.$i.'" rows="4" cols="50">'.str_replace("|","\n",$lunch_info[1]).'</textarea><br/>';
 								$i++;
 							}
 						}
@@ -45,14 +47,14 @@ echo '<form onsubmit="return saveKitchenMenuEdit(\''.$this->lang->line("kitchen_
 				echo '<button type="button" onClick="oneMore(\'l\');" >+</button><br/>';
 			echo '</td>';
 			
-			echo '<td class="kitchen_menu_view">';
+			echo '<td class="kitchen_menu_column">';
 				echo '<table id="s">';
-					echo '<b><p>ÕHTUSÖÖK</p></b>';
+					echo '<p>Hommikusöök</p>';
 						$i = 0;
 						foreach ($supper_array as $supper) {
 							if($supper != ""){
 								$supper_info = explode('=', $supper);
-								echo '<b>Toit: </b><input value="'.$supper_info[0].'" id="s_'.$i.'" type="text"><br/> <b>Koostis: </b><br/><textarea id="s_c_'.$i.'" rows="4" cols="32">'.$supper_info[1].'</textarea><br/>';
+								echo 'Toit:<input value="'.$supper_info[0].'" id="s_'.$i.'" type="text"><br/> Koostis:<br/><textarea id="s_c_'.$i.'" rows="4" cols="50">'.str_replace("|","\n",$supper_info[1]).'</textarea><br/>';
 								$i++;
 							}
 						}

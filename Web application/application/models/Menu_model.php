@@ -1,5 +1,12 @@
 <?php
 class Menu_model extends CI_Model {
+	
+	public function get_departments(){
+		$this->load->database();
+        $sql = 'SELECT DISTINCT section_name FROM section_menu';
+	    $query = $this->db->query($sql);
+	    return $query->result_array();
+	}
 
 	public function get_kitchen_menu($date){
         $this->load->database();
@@ -40,6 +47,17 @@ class Menu_model extends CI_Model {
 	public function get_orders($date){
         $this->load->database();
         $sql = 'SELECT * FROM section_menu WHERE date ="'.$date.'"';
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+	
+	public function get_orders_from_to($date_from, $date_to, $department){
+		$this->load->database();
+		if($department == 'all'){
+			$sql = 'SELECT * FROM section_menu WHERE date >="'.$date_from.'" AND date <="'.$date_to.'"';
+		}else{
+			$sql = 'SELECT * FROM section_menu WHERE date >="'.$date_from.'" AND date <="'.$date_to.'" AND section_name = "'.$department.'" ORDER BY date ASC, section_name ASC';
+		}
         $query = $this->db->query($sql);
         return $query->result_array();
     }
