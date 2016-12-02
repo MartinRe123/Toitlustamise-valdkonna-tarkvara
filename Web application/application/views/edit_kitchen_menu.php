@@ -22,7 +22,7 @@ echo '<form onsubmit="return saveKitchenMenuEdit(\''.$this->lang->line("kitchen_
 						foreach ($breakfast_array as $breakfast) {
 							if($breakfast != ""){
 								$breakfast_info = explode('=', $breakfast);
-								echo '<b>Toit: </b><input value="'.$breakfast_info[0].'" id="b_'.$i.'" type="text"><br/> <b>Koostis: </b><br/><textarea id="b_c_'.$i.'" rows="4" cols="35">'.$breakfast_info[1].'</textarea><br/>';
+								echo '<b>Toit: </b><input value="'.$breakfast_info[0].'" id="b_'.$i.'" type="text"><br/> <b>Koostis: </b><br/><textarea id="b_c_'.$i.'" rows="4" cols="32">'.$breakfast_info[1].'</textarea><br/>';
 								$i++;
 							}
 						}
@@ -37,7 +37,7 @@ echo '<form onsubmit="return saveKitchenMenuEdit(\''.$this->lang->line("kitchen_
 						foreach ($lunch_array as $lunch) {
 							if($lunch != ""){
 								$lunch_info = explode('=', $lunch);
-								echo '<b>Toit: </b><input value="'.$lunch_info[0].'" id="l_'.$i.'" type="text"><br/> <b>Koostis: </b><br/><textarea id="l_c_'.$i.'" rows="4" cols="35">'.$lunch_info[1].'</textarea><br/>';
+								echo '<b>Toit: </b><input value="'.$lunch_info[0].'" id="l_'.$i.'" type="text"><br/> <b>Koostis: </b><br/><textarea id="l_c_'.$i.'" rows="4" cols="32">'.$lunch_info[1].'</textarea><br/>';
 								$i++;
 							}
 						}
@@ -52,7 +52,7 @@ echo '<form onsubmit="return saveKitchenMenuEdit(\''.$this->lang->line("kitchen_
 						foreach ($supper_array as $supper) {
 							if($supper != ""){
 								$supper_info = explode('=', $supper);
-								echo '<b>Toit: </b><input value="'.$supper_info[0].'" id="s_'.$i.'" type="text"><br/> <b>Koostis: </b><br/><textarea id="s_c_'.$i.'" rows="4" cols="35">'.$supper_info[1].'</textarea><br/>';
+								echo '<b>Toit: </b><input value="'.$supper_info[0].'" id="s_'.$i.'" type="text"><br/> <b>Koostis: </b><br/><textarea id="s_c_'.$i.'" rows="4" cols="32">'.$supper_info[1].'</textarea><br/>';
 								$i++;
 							}
 						}
