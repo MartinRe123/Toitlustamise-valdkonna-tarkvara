@@ -27,4 +27,10 @@ $lang['kitchen_menu_notification'] = 'Palun lisage iga söögiaja juurde vähema
 $lang['kitchen_menu_notification2'] = 'Valitud kuupäeva jaoks on menüü juba koostatud.';
 $lang['order_notification'] = 'Vigane kogus toidul: ';
 $lang['order_notification2'] = 'Tellimuse esitamiseks peab olema valitud vähemalt üks toit.';
+$lang['breakfast'] = 'HOMMIKUSÖÖK';
+$lang['lunch'] = 'LÕUNASÖÖK';
+$lang['dinner'] = 'ÕHTUSÖÖK';
+$lang['date'] = 'Kuupäev';
+$lang['ingredients'] = 'Koostis';
+$lang['food'] = 'Toit';
 ?>

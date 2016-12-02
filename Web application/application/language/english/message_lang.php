@@ -27,4 +27,10 @@ $lang['kitchen_menu_notification'] = 'Please insert atleast one food choice for 
 $lang['kitchen_menu_notification2'] = 'Menu for selected date is already created.';
 $lang['order_notification'] = 'Invalid amount for: ';
 $lang['order_notification2'] = 'Atleast one food should be chosen to complete the order.';
+$lang['breakfast'] = 'BREAKFAST';
+$lang['lunch'] = 'LUNCH';
+$lang['dinner'] = 'DINNER';
+$lang['date'] = 'Date';
+$lang['ingredients'] = 'Ingredients';
+$lang['food'] = 'Food';
 ?>

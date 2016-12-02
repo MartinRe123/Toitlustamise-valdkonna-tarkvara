@@ -27,4 +27,10 @@ $lang['kitchen_menu_notification'] = 'Пожалуйста добовляйте 
 $lang['kitchen_menu_notification2'] = 'На выранное число меню создавляена.';
 $lang['order_notification'] = 'Наверное количество блюда: '; //umbes et Vigane kogus toidul: <toidu nimi>. see toidu nimi lisatakse hiljem ise.
 $lang['order_notification2'] = 'Для заказа нужна быбрать хотя бы одну блюду..';
+$lang['breakfast'] = 'BREAKFAST';
+$lang['lunch'] = 'LUNCH';
+$lang['dinner'] = 'DINNER';
+$lang['date'] = 'Kuupäev';
+$lang['ingredients'] = 'Koostis';
+$lang['food'] = 'Toit';
 ?>

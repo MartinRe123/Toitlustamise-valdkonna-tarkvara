@@ -10,15 +10,19 @@ function oneMore(meal){
 	new_food_box.id = meal + "_" + i;
 	var new_contains_box = document.createElement("textarea");
 	new_contains_box.rows = 4;
-	new_contains_box.cols = 50;
+	new_contains_box.cols = 35;
 	new_contains_box.id = meal + "_c_" + i;
-	var text1 = document.createTextNode("Toit:");
-	var text2 = document.createTextNode("Koostis:");
+	var text1 = document.createTextNode("Toit: ");
+	var text2 = document.createTextNode("Koostis: ");
+	var bold1 = document.createElement("B");
+	var bold2 = document.createElement("B");
+	bold1.appendChild(text1);
+	bold2.appendChild(text2);
 	
-	new_row.appendChild(text1);
+	new_row.appendChild(bold1);
 	new_row.appendChild(new_food_box);
 	new_row.appendChild(document.createElement("br"));
-	new_row.appendChild(text2);
+	new_row.appendChild(bold2);
 	new_row.appendChild(document.createElement("br"));
 	new_row.appendChild(new_contains_box);
 	new_row.appendChild(document.createElement("br"));
