@@ -81,6 +81,12 @@ class Menu_model extends CI_Model {
         $this->db->query($sql);		
 	}
 	
+	public function delete_all_date_orders($date){
+		$this->load->database();
+        $sql = 'DELETE FROM section_menu WHERE date = "'.$date.'"';
+        $this->db->query($sql);			
+	}
+	
 	public function delete_order($date, $section_name){
 		$this->load->database();
         $sql = 'DELETE FROM section_menu WHERE date = "'.$date.'" AND section_name = "'.$section_name.'"';

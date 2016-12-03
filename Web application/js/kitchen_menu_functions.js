@@ -124,3 +124,26 @@ function saveKitchenMenu(message_fill_meals, dates, message_date_used){
 function isInArray(value, array) {
   return array.indexOf(value) > -1;
 }
+
+
+function warnModification() {
+	alert("Sellele menüü põhjal on esitatud tellimusi, menüü muutmine kustutab need tellimused. Palun teavitage osakondi muudatustest.");
+}
+
+function warnDeletion() {
+	alert("Sellele menüü põhjal on esitatud tellimusi, menüü kustutamine kustutab need tellimused. Palun teavitage osakondi muudatustest.");
+}
+
+function deleteConfirmation(a, url, count){
+	if(count > 0){
+		var result = confirm("Selle menüü põhjal on esitatud tellimusi, menüü kustutamine kustutab ka need tellimused. Palun teatage osakondi muudatustest. Kas soovite kustutamisega jätkata?");
+		if (result) {
+			a.href = url;
+		}
+	}else{
+		var result = confirm("Kas soovite kindlalt kustutada?");
+		if (result) {
+			a.href = url;
+		}
+	}
+}

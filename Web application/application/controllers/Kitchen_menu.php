@@ -101,6 +101,7 @@ class Kitchen_menu extends CI_Controller {
 			$this->load->model('menu_model');
 			$data['date'] = $date;
 			$data['menu'] = $this->menu_model->get_kitchen_menu($date);
+			$data['orders_count'] = count($this->menu_model->get_orders($date));
 			$this->load->view('kitchen_menu_view', $data);
 			$this->load->view('footer'); 
 		}
@@ -112,6 +113,7 @@ class Kitchen_menu extends CI_Controller {
 		}else{
 			$this->load->model('menu_model');
 			$this->menu_model->delete_kitchen_menu($date);
+			$this->menu_model->delete_all_date_orders($date);
 			redirect('kitchen_menu');
 		}
 	}
@@ -126,8 +128,8 @@ class Kitchen_menu extends CI_Controller {
 			$this->load->model('menu_model');
 			$data['date'] = $date;
 			$data['menu'] = $this->menu_model->get_kitchen_menu($date);
-			
 			$dates = $this->menu_model->get_created_dates(date("Y-m-d"));
+			$data['orders_count'] = count($this->menu_model->get_orders($date));
 			$data['date_info'] = "";
 			foreach ($dates as $d){
 				if ($d['date'] != $date){			
@@ -155,6 +157,7 @@ class Kitchen_menu extends CI_Controller {
 			$date = $this->input->post('date');
 			$previous_date = $this->input->post('previous_date');
 			$this->load->model('menu_model');
+			$this->menu_model->delete_all_date_orders($date);
 			if($previous_date == $date){ //kui leidub menüü sellel kuupäeval
 				$this->menu_model->edit_kitchen_menu($date, $breakfast, $lunch, $supper);
 			}else if(!empty($this->menu_model->get_kitchen_menu($date))){ //kui kuupäeva ei muudeta

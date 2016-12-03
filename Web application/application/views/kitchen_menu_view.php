@@ -51,4 +51,4 @@
 
 <br>
 <a id="lingid" href="<?php base_url() ?>/index.php/kitchen_menu/edit/<?php echo $date ?>">Muuda menüüd</a>
-<a id="lingid" onclick="deleteConfirmation(this, '<?php base_url() ?>/index.php/kitchen_menu/delete/<?php echo $date; ?>');" href="">Kustuta menüü</a>
+<a id="lingid" onclick="deleteConfirmation(this, '<?php base_url() ?>/index.php/kitchen_menu/delete/<?php echo $date; ?>', <?php echo $orders_count; ?>);" href="">Kustuta menüü</a>
