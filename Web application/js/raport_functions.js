@@ -2,8 +2,6 @@ function addDates() { //cbox on checkboxi objekt mis antakse onClickiga kaasa
 	var f = document.getElementById("date_from").value;
 	var t = document.getElementById("date_to").value;
 	var d = document.getElementById("department").value;
-	console.log("Haha: " + f + "   " + t + "  " + d);
-	console.log("/index.php/raport/view/" + f + "/" + t + "/" + d);
 	document.getElementById("search_form").action = "/index.php/raport/view/" + f + "/" + t + "/" + d;
 }
 
@@ -19,4 +17,11 @@ function printRaport(){
    document.body.innerHTML = contents;      
    window.print();      
    document.body.innerHTML = page;
+}
+
+function ingredientsToTop(){
+	var MyDiv1 = document.getElementById('swap_bottom');
+	var MyDiv2 = document.getElementById('swap_top');
+	MyDiv2.innerHTML = MyDiv1.innerHTML;
+	MyDiv1.innerHTML = null;
 }

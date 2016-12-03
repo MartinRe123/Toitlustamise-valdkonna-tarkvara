@@ -49,7 +49,7 @@ function getFoods(meal){
 			m += ";" + temp;
 		}
 		var c = document.getElementById(meal+"_c_"+i).value;
-		if(!matchExact("^([a-zA-Z|ö|ä|õ|ü|Ä|Ü|Õ|Ö|ž|Ž|š|Š]+?( [a-zA-Z|ö|ä|õ|ü|Ä|Ü|Õ|Ö|ž|Ž|š|Š]+)*? \\d+? ?,?(\\d+)? ?(kg|l)(\\n|))+$", c)){
+		if(!matchExact("^([a-zA-Z|ö|ä|õ|ü|Ä|Ü|Õ|Ö|ž|Ž|š|Š]+?( [a-zA-Z|ö|ä|õ|ü|Ä|Ü|Õ|Ö|ž|Ž|š|Š]+)*? \\d+?(,(\\d+))? (kg|l)(\\n|))+$", c)){
 			throw new Error(temp + ":\n " + c);
 		}
 		c = c.replace(/\n/g, "|");
@@ -68,7 +68,7 @@ function saveKitchenMenuEdit(message_fill_meals, dates){
 		var supper = getFoods("s");
 	}
 	catch(err) {
-		alert("Toidu koostisosad on vales formaadis:\n " + err + ".\n\n Õige formaat: <nimetus> <koguse number> <koguse tähis: kg või l> \n näide: kapsas 0,5 kg");
+		alert("Toidu koostisosad on vales formaadis:\n " + err + ".\n\n Õige formaat: <nimetus> <koguse number> <koguse tähis: kg või l> \n NÄIDE: kapsas 0,5 kg");
 		return false;
 	}
 	var breakfast_result = document.getElementById("breakfast_result");
