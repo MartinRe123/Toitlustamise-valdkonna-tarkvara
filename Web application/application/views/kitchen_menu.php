@@ -1,9 +1,6 @@
 <div class="content">
-<h1>See on köögi menüüde kuvamise leht</h1>
-<p>Siin lehel kuvatakse köögi poolt sisestatud menüüd, mille alusel saab kokku panna osakondade menüüd</p>
+<h1>Köögi menüüd</h1>
 
-<p>Vajutage kuupäeval, et koostada menüü.</p>
-<p>Juba koostatud menüüsid saab vaadata ja muuta samuti klõpsates kuupäeval.</p>
 <?php
 foreach ($kitchen_menus as $menu){
 	if($role == 'kokk'){

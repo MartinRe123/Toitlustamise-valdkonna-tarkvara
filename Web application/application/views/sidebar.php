@@ -39,6 +39,12 @@
    ?>
   </tr>
    <tr>
+   <?php if($this->session->userdata('logged_in') && $this->session->userdata('role') == 'admin'){
+		echo '<td class="td_"><a class="sidebar_a" href="'.base_url().'index.php/my_account/change_department">Vaheta osakonda</a></td>';
+   }
+   ?>
+  </tr>
+   <tr>
    <?php if($this->session->userdata('logged_in')){
 		echo '<td class="td_"><a class="sidebar_a" href="'.base_url().'index.php/about">'.$this->lang->line("about_page").'</a></td>';
    }

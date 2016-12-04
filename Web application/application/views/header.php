@@ -30,6 +30,7 @@ if ($this->session->userdata('role') == 'kokk'){
 	echo '<h2 class="roll">'.$this->lang->line("department").': '.$this->session->userdata('section').'</h2>';
 }else if($this->session->userdata('role') == 'admin'){
 	echo '<h2 class="roll">'.$this->lang->line("admin").'</h2>';
+	echo '<h3 class="roll">'.$this->lang->line("department").': '.$this->session->userdata('section').'</h3>';
 }
 ?></td>
 <td><a id="logo" href="<?php echo base_url(); ?>index.php/home"><img src="/images/haigla_logo.png"></a></td>

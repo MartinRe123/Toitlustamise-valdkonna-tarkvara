@@ -16,10 +16,10 @@ class My_account extends CI_Controller {
 			$this->load->view('change_password');
 			$this->load->view('footer');
 		}else{
-			$this->load->model("Change_password_model");
+			$this->load->model("Account_settings_model");
 			$username = $this->session->userdata('username');
 			$password = $this->input->post('conf_pw');
-			$result = $this->Change_password_model->change_pw($username, $password);			
+			$result = $this->Account_settings_model->change_pw($username, $password);			
 			redirect('home');
 		}
 	}
@@ -34,7 +34,23 @@ class My_account extends CI_Controller {
      			$this->form_validation->set_message('check_database', 'Invalid username or password');
      			return false;
    		}
- 	}		
+ 	}
+
+
+	function change_department(){
+		$this->load->Model("Account_settings_model");
+		$data['departments'] = $this->Account_settings_model->get_departments();
+		$this->load->view('header');
+		$this->load->view('sidebar');
+		$this->load->view('change_department', $data);
+		$this->load->view('footer');		
+	}
+	
+	function role_changed(){
+		$department = $this->input->post('department');
+		$this->session->set_userdata('section', $department);
+		redirect('home');
+	}	
 		
 }	
 

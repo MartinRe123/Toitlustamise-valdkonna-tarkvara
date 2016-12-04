@@ -5,8 +5,10 @@ class Section_menu extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->library('session');
-		if(!$this->session->userdata('logged_in') || $this->session->userdata('role') == 'kokk' || $this->session->userdata('role') == 'admin'){
+		if(!$this->session->userdata('logged_in') || $this->session->userdata('role') == 'kokk'){
 			redirect('home');    			
+		}else if($this->session->userdata('role') == 'admin' && $this->session->userdata('section') === ''){
+			redirect('home');
 		}
 	}
 
