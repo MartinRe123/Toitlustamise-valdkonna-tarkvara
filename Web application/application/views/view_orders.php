@@ -1,7 +1,7 @@
 <div class="content">
 <?php 
 	echo '<h1>'.$date.'</h1>';
-	echo '<a href="'.base_url().'index.php/kitchen_menu">Tagasi eelmisele lehele</a>';
+	echo '<a id="lingid" href="'.base_url().'index.php/kitchen_menu">Tagasi eelmisele lehele</a>';
 
 foreach ($orders as $section_order){
 	echo '<h1>'.$section_order['section_name'].'</h1>';

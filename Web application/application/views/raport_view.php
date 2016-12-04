@@ -132,12 +132,12 @@ function addIngredientsToTotal($ingredients, $list, $count){
 			asort($list_keys);
 			$c = 0;
 			echo '<div id="swap_bottom"><h1>Laost kuulub mahakandmisele:</h1>';
-			echo '<table>';
+			echo '<table class="raport_view">';
 			foreach($list_keys as $name){
 				if($c % 5 == 0){
 					echo '<tr>';
 				}
-				echo '<td>'.$name.' '.$ingredients[$name].'</td>';
+				echo '<td class="raport_view">'.$name.' '.$ingredients[$name].'</td>';
 				if($c % 5 == 4){
 					echo '</tr>';
 				}

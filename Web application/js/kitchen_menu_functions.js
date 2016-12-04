@@ -10,7 +10,7 @@ function oneMore(meal){
 	new_food_box.id = meal + "_" + i;
 	var new_contains_box = document.createElement("textarea");
 	new_contains_box.rows = 4;
-	new_contains_box.cols = 35;
+	new_contains_box.cols = 32;
 	new_contains_box.id = meal + "_c_" + i;
 	var text1 = document.createTextNode("Toit: ");
 	var text2 = document.createTextNode("Koostis: ");

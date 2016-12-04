@@ -75,6 +75,7 @@ h2.roll, h3.roll {
 
 #rolls{
 	min-width: 250px;
+        max-width: 300px;
 }
 
 
