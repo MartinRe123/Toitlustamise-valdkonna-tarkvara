@@ -1,8 +1,13 @@
 <?php
 
 class My_account extends CI_Controller {
-	
-	public function index(){}
+	function __construct(){
+	   	parent::__construct();
+		$this->load->library('session');
+		if(!$this->session->userdata('logged_in')){
+			redirect('login');   
+		}
+	 }
 	
 	public function change_password(){
 		$this->load->library('session');
@@ -38,18 +43,26 @@ class My_account extends CI_Controller {
 
 
 	function change_department(){
-		$this->load->Model("Account_settings_model");
-		$data['departments'] = $this->Account_settings_model->get_departments();
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('change_department', $data);
-		$this->load->view('footer');		
+		if(!$this->session->userdata('role') == 'admin'){
+			redirect('home');    			
+		}else{
+			$this->load->Model("Account_settings_model");
+			$data['departments'] = $this->Account_settings_model->get_departments();
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('change_department', $data);
+			$this->load->view('footer');	
+		}
 	}
 	
 	function role_changed(){
-		$department = $this->input->post('department');
-		$this->session->set_userdata('section', $department);
-		redirect('home');
+		if(!$this->session->userdata('role') == 'admin'){
+			redirect('home');    			
+		}else{
+			$department = $this->input->post('department');
+			$this->session->set_userdata('section', $department);
+			redirect('home');
+		}
 	}	
 		
 }	

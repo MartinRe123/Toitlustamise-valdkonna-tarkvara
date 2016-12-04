@@ -2,34 +2,31 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kitchen_menu extends CI_Controller {
-
 	public function __construct(){
 		parent::__construct();
 		$this->load->library('session');
-	
+		if(!$this->session->userdata('logged_in')){
+			redirect('login');   
+		}
 	}
 
 	public function index(){
-		if(!$this->session->userdata('logged_in')){
-			redirect('home');    			
-		}else{
-			$this->load->helper('url');
-			$this->load->helper('form');	
-			$this->load->library('form_validation');
-			$this->load->library('session');
-			$this->load->view('header');
-			$this->load->view('sidebar');
-			$this->load->model('menu_model');
-			$data['kitchen_menus'] = $this->menu_model->get_kitchen_menus();
-			$data['section_name'] = $this->session->userdata('section');
-			$data['role'] = $this->session->userdata('role');
-			$this->load->view('kitchen_menu', $data);
-			$this->load->view('footer');
-		}
+		$this->load->helper('url');
+		$this->load->helper('form');	
+		$this->load->library('form_validation');
+		$this->load->library('session');
+		$this->load->view('header');
+		$this->load->view('sidebar');
+		$this->load->model('menu_model');
+		$data['kitchen_menus'] = $this->menu_model->get_kitchen_menus();
+		$data['section_name'] = $this->session->userdata('section');
+		$data['role'] = $this->session->userdata('role');
+		$this->load->view('kitchen_menu', $data);
+		$this->load->view('footer');
 	}
 	
 	public function create(){
-		if(!$this->session->userdata('logged_in') || !($this->session->userdata('role') == 'kokk' || $this->session->userdata('role') == 'admin')){
+		if($this->session->userdata('role') == 'osakond'){
 			redirect('home');    			
 		}else{
 			$this->load->helper('url');
@@ -58,7 +55,7 @@ class Kitchen_menu extends CI_Controller {
 	}
 	
 	public function save_menu(){
-		if(!$this->session->userdata('logged_in') || !($this->session->userdata('role') == 'kokk' || $this->session->userdata('role') == 'admin')){
+		if($this->session->userdata('role') == 'osakond'){
 			redirect('home');    			
 		}else{
 			$this->load->model('menu_model');
@@ -74,7 +71,7 @@ class Kitchen_menu extends CI_Controller {
 	}
 	
 	public function orders($date){
-		if(!$this->session->userdata('logged_in') || !($this->session->userdata('role') == 'kokk' || $this->session->userdata('role') == 'admin')){
+		if($this->session->userdata('role') == 'osakond'){
 			redirect('home');    			
 		}else{
 			$this->load->model('menu_model');
@@ -91,7 +88,7 @@ class Kitchen_menu extends CI_Controller {
     }
 	
 	public function view($date){
-		if(!$this->session->userdata('logged_in') || !($this->session->userdata('role') == 'kokk' || $this->session->userdata('role') == 'admin')){
+		if($this->session->userdata('role') == 'osakond'){
 			redirect('home');    			
 		}else{
 			$this->load->model('menu_model');
@@ -108,7 +105,7 @@ class Kitchen_menu extends CI_Controller {
 	}
 	
 	public function delete($date){
-		if(!$this->session->userdata('logged_in') || !($this->session->userdata('role') == 'kokk' || $this->session->userdata('role') == 'admin')){
+		if($this->session->userdata('role') == 'osakond'){
 			redirect('home');    			
 		}else{
 			$this->load->model('menu_model');
@@ -119,7 +116,7 @@ class Kitchen_menu extends CI_Controller {
 	}
 	
 	public function edit($date){
-		if(!$this->session->userdata('logged_in') || !($this->session->userdata('role') == 'kokk' || $this->session->userdata('role') == 'admin')){
+		if($this->session->userdata('role') == 'osakond'){
 			redirect('home');    			
 		}else{
 			$this->load->library('session');
@@ -147,7 +144,7 @@ class Kitchen_menu extends CI_Controller {
 	}
 	
 	public function save_menu_edit(){
-		if(!$this->session->userdata('logged_in') || !($this->session->userdata('role') == 'kokk' || $this->session->userdata('role') == 'admin')){
+		if($this->session->userdata('role') == 'osakond'){
 			redirect('home');    			
 		}else{
 			$this->load->library('session');

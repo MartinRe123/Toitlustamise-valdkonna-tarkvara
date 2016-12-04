@@ -20,12 +20,6 @@
    }
    ?>
   </tr>
-  <tr>
-   <?php if($this->session->userdata('logged_in')){
-		echo '<td class="td_"><a class="sidebar_a" href="'.base_url().'">'.$this->lang->line("chat").'</a></td>';
-   }
-   ?>
-  </tr>
    <tr>
    <?php if($this->session->userdata('logged_in') && $this->session->userdata('role') == 'admin'){
 		echo '<td class="td_"><a class="sidebar_a" href="'.base_url().'index.php/register">'.$this->lang->line("register").'</a></td>';

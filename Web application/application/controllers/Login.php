@@ -8,12 +8,10 @@ class Login extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->library('session');
 		$this->load->model('Account_Validation','',TRUE);
-	
 	 }
  	
  	function index(){
         if($this->session->userdata('logged_in')){ //sisseloginutele ei luba uuesti sisse logimist.
-			//redirect($this->session->userdata('previous_url'), 'refresh');
             $data['notification_message'] = 'Olete juba sisse loginud, kasutaja vahetamiseks logige esmalt välja.';
             $this->load->view('header');
 			$this->load->view('sidebar');
@@ -75,7 +73,6 @@ class Login extends CI_Controller {
 		$this->session->unset_userdata('username');
    		$this->session->unset_userdata('role');
    		$this->session->unset_userdata('section');
-   		//session_destroy();
    		redirect('login');
  	}
 
