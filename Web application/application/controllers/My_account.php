@@ -1,63 +1,42 @@
 <?php
 
-	class My_account extends CI_Controller {
+class My_account extends CI_Controller {
 	
-		public function index(){}
-		
-		public function change_password()
-		{
-			$this->load->model("Change_password_model");
-			$this->Change_password_model->member_page();
-			
-			
-			
-			$this->form_validation->set_rules('cur_pw','Current Password','required|callback_change');
-			$this->form_validation->set_rules('new_pw','New Password','required|min_length[8]');
-			$this->form_validation->set_rules('conf_pw','Confirm Password','required|matches[new_pw]');
-			if ( $this->form_validation->run() != true )
-			{
-			$this->load->library('session');
+	public function index(){}
+	
+	public function change_password(){
+		$this->load->library('session');
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('cur_pw', 'Vana parool', 'trim|required|callback_check_database');
+		$this->form_validation->set_rules('new_pw', 'Uus parool', 'trim|required|min_length[8]');
+		$this->form_validation->set_rules('conf_pw', 'Parool uuesti', 'trim|required|matches[new_pw]');		
+		if ($this->form_validation->run() == FALSE){
 			$this->load->view('header');
 			$this->load->view('sidebar');
-			$this->load->view("Change_password");
+			$this->load->view('change_password');
 			$this->load->view('footer');
-			} else {}
+		}else{
+			$this->load->model("Change_password_model");
+			$username = $this->session->userdata('username');
+			$password = $this->input->post('conf_pw');
+			$result = $this->Change_password_model->change_pw($username, $password);			
+			redirect('home');
 		}
-			
-		function change() {
+	}
+ 
+	function check_database($password){
+		$this->load->model("Account_Validation");
+   		$username = $this->session->userdata('username');
+   		$result = $this->Account_Validation->login($username, $password);
+   		if($result){
+     			return true;
+   		}else{
+     			$this->form_validation->set_message('check_database', 'Invalid username or password');
+     			return false;
+   		}
+ 	}		
+		
+}	
 
-			$sql = $this->db->select("*")->from("user")->where("username",$this->session->userdata("username"))->get();
-		
-			foreach($sql->result() as $my_info)
-			{
-				
-				$current_password = $my_info->password;
-				$db_id = $my_info->username;
-			}
-			$praegune_parool = $current_password;
-			if ( md5($this->input->post("cur_pw")) == $current_password) {
-				$fixed_pw = md5($this->input->post("new_pw"));
-				$update = $this->db->query("UPDATE `user` SET `password` = '$fixed_pw' WHERE `username` = '$db_id'") or die(mysqli_error());
-				redirect('Passwd_changed',"refresh");
-			} else {
-				$this->form_validation->set_message('change', 'Sisestasite vale parooli!');
-				
-			}
-			
-		
-		}
-		
-	}	
 	
-	
-
-
-
-
-
-
-
-
-
-
 ?>
