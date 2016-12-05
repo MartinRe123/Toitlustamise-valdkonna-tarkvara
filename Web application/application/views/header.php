@@ -26,12 +26,26 @@
 <td id="rolls"><?php 
 if ($this->session->userdata('role') == 'kokk'){
 	echo '<h2 class="roll">'.$this->lang->line("chef").'</h2>';
-}else if($this->session->userdata('role') == 'osakond'){
+}
+else if($this->session->userdata('role') == 'osakond'){
 	echo '<h2 class="roll">'.$this->lang->line("department").': '.$this->session->userdata('section').'</h2>';
 }else if($this->session->userdata('role') == 'admin'){
 	echo '<h2 class="roll">'.$this->lang->line("admin").'</h2>';
-	echo '<h3 class="roll">'.$this->lang->line("department").': '.$this->session->userdata('section').'</h3>';
-}
+	if ($this->session->userdata('section') == 'Lasteosakond') {
+		echo '<h3 class="roll">'.$this->lang->line("department").': '.$this->lang->line("childrens_department").'</h3>';
+	} else if($this->session->userdata('section') == 'Kirurgia') {
+	echo '<h3 class="roll">'.$this->lang->line("department").': '.$this->lang->line("surgery").'</h3>';
+	}else if($this->session->userdata('section') == 'Intensiivravi'){
+	echo '<h3 class="roll">'.$this->lang->line("department").': '.$this->lang->line("intensive").'</h3>';
+	}else {
+		echo '<h3 class="roll">'.$this->lang->line("department").': '.$this->session->userdata('section').'</h3>';
+	}
+  }	
+
+	
+
+	
+
 ?></td>
 <td><a id="logo" href="<?php echo base_url(); ?>index.php/home"><img src="/images/haigla_logo.png"></a></td>
 <td>
@@ -47,8 +61,8 @@ if ($this->session->userdata('role') == 'kokk'){
 <?php         	
 if($this->session->userdata('logged_in')){
      	$session_data = $this->session->userdata('username');
-     	echo 'Oled sisse loginud kasutajaga <b>'.$session_data.'</b>';
-        echo '<br/><br><a id ="logivalja" href="'.base_url().'index.php/login/logout">Logi välja</a>';
+     	echo ''.$this->lang->line("logged_in_as").' '.$session_data.'</b>';
+        echo '<br/><br><a id ="logivalja" href="'.base_url().'index.php/login/logout">'.$this->lang->line("logout").'</a>';
  } ?>
 </p></td>
 </tr>

@@ -1,12 +1,12 @@
 <div class="content">
-<h1>Köögi menüüd</h1>
+<h1><?php echo $this->lang->line("kitchen_menu"); ?></h1>
 
 <?php
 foreach ($kitchen_menus as $menu){
 	if($role == 'kokk'){
 		echo '<b>'.$menu['date'].'</b><br/>';
-		echo '<a href="kitchen_menu/orders/'.$menu['date'].'">Kõik tellimused</a><br/>';
-		echo '<a href="kitchen_menu/view/'.$menu['date'].'">Köögi menüü</a><br/><br/><br/>';
+		echo '<a href="kitchen_menu/orders/'.$menu['date'].'">'.$this->lang->line("all_orders").'</a><br/>';
+		echo '<a href="kitchen_menu/view/'.$menu['date'].'">'.$this->lang->line("kitchen_menu").'</a><br/><br/><br/>';
 	}else if($role == 'osakond'){
 		$array = $this->menu_model->get_section_menu($menu['date'], $section_name);
 		if(!empty($array)){
@@ -18,14 +18,36 @@ foreach ($kitchen_menus as $menu){
 		$array = $this->menu_model->get_section_menu($menu['date'], $section_name);
 		if(!empty($array)){
 			echo '<b>'.$menu['date'].'</b><br/>';
-			echo '<a href="section_menu/view/'.$menu['date'].'">Tellimus osakonnale ('.$section_name.') [Koostatud]</a><br/>';
-			echo '<a href="kitchen_menu/orders/'.$menu['date'].'">Kõik tellimused</a><br/>';
-			echo '<a href="kitchen_menu/view/'.$menu['date'].'">Köögi menüü</a><br/><br/><br/>';
+			if ($section_name == 'Lasteosakond') { 
+				echo '<a href="section_menu/view/'.$menu['date'].'">'.$this->lang->line("order_for_dep").' ('.$this->lang->line("childrens_department").') ['.$this->lang->line("composed").']</a><br/>';
+			}
+			else if ($section_name == 'Kirurgia') {
+				echo '<a href="section_menu/view/'.$menu['date'].'">'.$this->lang->line("order_for_dep").' ('.$this->lang->line("surgery").') ['.$this->lang->line("composed").']</a><br/>';
+			}
+			else if ($section_name == 'Intensiivravi') {
+				echo '<a href="section_menu/view/'.$menu['date'].'">'.$this->lang->line("order_for_dep").' ('.$this->lang->line("intensive").') ['.$this->lang->line("composed").']</a><br/>';
+			}
+			else {
+			echo '<a href="section_menu/view/'.$menu['date'].'">'.$this->lang->line("order_for_dep").' ('.$section_name.') ['.$this->lang->line("composed").']</a><br/>';
+			}
+			echo '<a href="kitchen_menu/orders/'.$menu['date'].'">'.$this->lang->line("all_orders").'</a><br/>';
+			echo '<a href="kitchen_menu/view/'.$menu['date'].'">'.$this->lang->line("kitchen_menu").'</a><br/><br/><br/>';
 		}else{
 			echo '<b>'.$menu['date'].'</b><br/>';
-			echo '<a href="section_menu/create/'.$menu['date'].'">Tellimus osakonnale ('.$section_name.')</a><br/>';
-			echo '<a href="kitchen_menu/orders/'.$menu['date'].'">Kõik tellimused</a><br/>';
-			echo '<a href="kitchen_menu/view/'.$menu['date'].'">Köögi menüü</a><br/><br/><br/>';
+			if ($section_name == 'Lasteosakond') { 
+				echo '<a href="section_menu/create/'.$menu['date'].'">'.$this->lang->line("order_for_dep").' ('.$this->lang->line("childrens_department").')</a><br/>';
+			}
+			else if ($section_name == 'Kirurgia') {
+				echo '<a href="section_menu/create/'.$menu['date'].'">'.$this->lang->line("order_for_dep").' ('.$this->lang->line("surgery").')</a><br/>';
+			}
+			else if ($section_name == 'Intensiivravi') {
+				echo '<a href="section_menu/create/'.$menu['date'].'">'.$this->lang->line("order_for_dep").' ('.$this->lang->line("intensive").')</a><br/>';
+			}
+			else {
+			echo '<a href="section_menu/create/'.$menu['date'].'">'.$this->lang->line("order_for_dep").' ('.$section_name.')</a><br/>';
+			}
+			echo '<a href="kitchen_menu/orders/'.$menu['date'].'">'.$this->lang->line("all_orders").'</a><br/>';
+			echo '<a href="kitchen_menu/view/'.$menu['date'].'">'.$this->lang->line("kitchen_menu").'</a><br/><br/><br/>';
 		}
 	}
 

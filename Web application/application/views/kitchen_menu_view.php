@@ -1,7 +1,7 @@
 <div class="content">
-<?php echo '<h1>Menüü kuupäeval '.$date.'</h1>';?>
+<?php echo '<h1>'.$this->lang->line("menu_on_date").' '.$date.'</h1>';?>
 </br>
-<a id="lingid" href="<?php base_url() ?>/index.php/kitchen_menu">Tagasi menüüde lehele</a>
+<a id="lingid" href="<?php base_url() ?>/index.php/kitchen_menu"><?php echo $this->lang->line("back_to_menu"); ?></a>
 <br><br>
 
 <?php 
@@ -23,7 +23,7 @@
 	}
 	
 	$max_rows = max(count($breakfast_array), count($lunch_array), count($supper_array));
-	echo '<table class = "kitchen_menu_view"><tr><th>Hommikusöök</th><th>Lõunasöök</th><th>Õhtusöök</th></tr><tr>';
+	echo '<table class = "kitchen_menu_view"><tr><th>'.$this->lang->line("breakfast").'</th><th>'.$this->lang->line("lunch").'</th><th>'.$this->lang->line("dinner").'</th></tr><tr>';
 	for ($i = 0; $i < $max_rows; $i++){
 		echo '<tr>';
 		if($i < count($breakfast_array)){
@@ -50,5 +50,5 @@
 ?>
 
 <br>
-<a id="lingid" href="<?php base_url() ?>/index.php/kitchen_menu/edit/<?php echo $date ?>">Muuda menüüd</a>
-<a id="lingid" onclick="deleteConfirmation(this, '<?php base_url() ?>/index.php/kitchen_menu/delete/<?php echo $date; ?>', <?php echo $orders_count; ?>);" href="">Kustuta menüü</a>
+<a id="lingid" href="<?php base_url() ?>/index.php/kitchen_menu/edit/<?php echo $date ?>"><?php echo $this->lang->line("change_menu"); ?></a>
+<a id="lingid" onclick="deleteConfirmation(this, '<?php base_url() ?>/index.php/kitchen_menu/delete/<?php echo $date; ?>', <?php echo $orders_count; ?>);" href=""><?php echo $this->lang->line("delete_menu"); ?></a>

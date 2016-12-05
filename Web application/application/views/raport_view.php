@@ -2,34 +2,45 @@
 
 
 <div class="content">
-<h1>Raportid</h1>
+<h1><?php echo $this->lang->line("raports"); ?></h1>
 <form onsubmit="addDates();" id="search_form" method="post" accept-charset="utf-8" action="">
-<label id="raport_date_from" for="date_from"><b>Algus: </b></label>
+<label id="raport_date_from" for="date_from"><b><?php echo $this->lang->line("beginning"); ?>: </b></label>
 <input type="text" id="date_from" value="<?php echo date("Y-m-d"); ?>" name="date_from" readonly="readonly">
 
-<label id="raport_date_to" for="date_to"><b>Lõpp: </b></label>
+<label id="raport_date_to" for="date_to"><b><?php echo $this->lang->line("end"); ?>: </b></label>
 <input type="text" id="date_to" value="<?php echo date("Y-m-d"); ?>" name="date_to" readonly="readonly">
 
-<label id="raport_department" for="department"><b>Osakond: </b></label>
+<label id="raport_department" for="department"><b><?php echo $this->lang->line("department"); ?>: </b></label>
 
 
 
 <select name="department" id="department">
-	<option value="all">Kõik osakonnad</option>
+	<option value="all"><?php echo $this->lang->line("all_departments"); ?></option>
 <?php
 	foreach($departments as $department){
-		echo '<option value="'.$department['section_name'].'">'.$department['section_name'].'</option>';
+		if($department['section_name'] == 'Lasteosakond'){
+			echo '<option value="'.$department['section_name'].'">'.$this->lang->line("childrens_department").'</option>';
+		}
+		else if ($department['section_name'] == 'Kirurgia'){
+			echo '<option value="'.$department['section_name'].'">'.$this->lang->line("surgery").'</option>';
+		}
+		else if ($department['section_name'] == 'Intensiivravi'){
+			echo '<option value="'.$department['section_name'].'">'.$this->lang->line("intensive").'</option>';
+		}
+		else {
+			echo '<option value="'.$department['section_name'].'">'.$department['section_name'].'</option>';
+		}
 	}
 ?>
 </select>
 
-<input type="submit" value="Otsi">
+<input type="submit" value=<?php echo $this->lang->line("search"); ?>>
 </form>
 
 <br>
 <?php if($searched){
 		if(!empty($orders)){
-			echo '<input type="button" value="Prindi raport" onclick="printRaport();"/>'; 
+			echo '<input type="button" value='.$this->lang->line("print_raport").' onclick="printRaport();"/>'; 
 		}
 }
 ?>
@@ -78,9 +89,20 @@ function addIngredientsToTotal($ingredients, $list, $count){
 				$lunch_array = explode(';', $lunch);
 				$supper_array = explode(';', $supper);				
 				
-				echo '<h2>'.$section_name.' ('.$date.')</h2>';
+				if ($section_name == 'Kirurgia'){
+					echo '<h2>'.$this->lang->line("surgery").' ('.$date.')</h2>';
+				}
+				else if ($section_name == 'Lasteosakond'){
+					echo '<h2>'.$this->lang->line("childrens_department").' ('.$date.')</h2>';
+				}
+				else if ($section_name == 'Intensiivravi'){
+					echo '<h2>'.$this->lang->line("intensive").' ('.$date.')</h2>';
+				}
+				else {
+					echo '<h2>'.$section_name.' ('.$date.')</h2>';}
+				
 				$max_rows = max(count($breakfast_array), count($lunch_array), count($supper_array));
-				echo '<table class="raport_view"><tr><th>Hommikusöök</th><th>Kogus</th><th>Lõunasöök</th><th>Kogus</th><th>Õhtusöök</th><th>Kogus</th></tr><tr>';
+				echo '<table class="raport_view"><tr><th>'.$this->lang->line("breakfast").'</th><th>'.$this->lang->line("amount").'</th><th>'.$this->lang->line("lunch").'</th><th>'.$this->lang->line("amount").'</th><th>'.$this->lang->line("dinner").'</th><th>'.$this->lang->line("amount").'</th></tr><tr>';
 				for ($i = 0; $i < $max_rows; $i++){
 					echo '<tr >';
 					if($i < count($breakfast_array)){
@@ -123,7 +145,7 @@ function addIngredientsToTotal($ingredients, $list, $count){
 				}
 				echo '</table>';
 				if($comments){
-					echo '<p><b>Lisamärkused:  </b>'.$comments.'</p>';
+					echo '<p><b>'.$this->lang->line("comments").':  </b>'.$comments.'</p>';
 				}
 				echo '<br/><hr><br/></div>';
 			}
@@ -131,7 +153,7 @@ function addIngredientsToTotal($ingredients, $list, $count){
 			$list_keys = array_keys($ingredients);
 			asort($list_keys);
 			$c = 0;
-			echo '<div id="swap_bottom"><h1>Laost kuulub mahakandmisele:</h1>';
+			echo '<div id="swap_bottom"><h1>'.$this->lang->line("from_storage").':</h1>';
 			echo '<table class="raport_view">';
 			foreach($list_keys as $name){
 				if($c % 5 == 0){
@@ -146,7 +168,7 @@ function addIngredientsToTotal($ingredients, $list, $count){
 			echo '</table><hr></div><script type="text/javascript"> ingredientsToTop(); </script>';
 			
 		}else{
-			echo 'Selles ajavahemikus ei leitud ühtegi tellimust.';
+			echo ''.$this->lang->line("no_orders_found").'.';
 		}
 	}
 	

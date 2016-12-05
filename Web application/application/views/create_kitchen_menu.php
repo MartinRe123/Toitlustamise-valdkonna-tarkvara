@@ -2,9 +2,9 @@
 
 
 <div class="content">
-<h1>See on köögi menüüde koostamise leht</h1>
-<a id="lingid" href="<?php base_url() ?>/index.php/kitchen_menu">Tagasi köögi menüüde lehele</a><br/><br/>
-<h2>Koostisosad sisesta eraldi ridadele.</h2>
+<h1><?php echo $this->lang->line("menu_create_page"); ?></h1>
+<a id="lingid" href="<?php base_url() ?>/index.php/kitchen_menu"><?php echo $this->lang->line("back_to_menus"); ?></a><br/><br/>
+<h2><?php echo $this->lang->line("insert_ingrediens"); ?></h2>
 
 
 <div class="form_validation_errors"> <?php echo validation_errors(); ?> </div>
@@ -47,6 +47,6 @@
 	<input id="supper_result" name="supper" type="hidden" value="">
 	
 
-	<input type="submit" value="Salvesta menüü">
+	<input type="submit" value=<?php echo $this->lang->line("save"); ?>>
 </form>
 

@@ -7,20 +7,20 @@
 <table cellspacing='3' cellpadding='3'>
 
 	<tr>
-	<th class="reglog">Praegune parool: </th>
+	<th class="reglog"><?php echo $this->lang->line("current_password"); ?></th>
 	<td><?=form_password(array("name"=>"cur_pw"))?></td>
 	</tr>	
 	<tr>
-	<th class="reglog">Uus parool: </th>
+	<th class="reglog"><?php echo $this->lang->line("new_password"); ?></th>
 	<td><?=form_password(array("name"=>"new_pw"))?></td>
 	</tr>	
 	<tr>
-	<th class="reglog">Korda uut parooli: </th>
+	<th class="reglog"><?php echo $this->lang->line("conf_password"); ?></th>
 	<td><?=form_password(array("name"=>"conf_pw"))?></td>
 	</tr>
 	<tr>
 	<td></td>
-	<td><input type='submit' value='Kinnita' />
+	<td><input type='submit' value=<?php echo $this->lang->line("change"); ?> />
 	</tr>
 	
 </table>

@@ -2,9 +2,9 @@
 
 
 <div class="content">
-<?php echo '<h1>Menüü kuupäeval '.$date.'</h1>';?>
+<?php echo '<h1>'.$this->lang->line("menu_on_date").' '.$date.'</h1>';?>
 </br>
-<a id="lingid" href="<?php base_url() ?>/index.php/kitchen_menu">Tagasi menüüde lehele</a>
+<a id="lingid" href="<?php base_url() ?>/index.php/kitchen_menu"><?php echo $this->lang->line("back_to_menu"); ?></a>
 <br><br>
 
 <?php
@@ -17,17 +17,17 @@ if($orders_count > 0){
 	$supper_array = explode(';', $menu['supper']);
 echo '<form onsubmit="return saveKitchenMenuEdit(\''.$this->lang->line("kitchen_menu_notification").'\', \''.$date_info.'\');" method="post" accept-charset="utf-8" action="/index.php/kitchen_menu/save_menu_edit/">';
 
-	echo '<label id="menu_date" for="date"><b>Kuupäev: </b></label>';
+	echo '<label id="menu_date" for="date"><b>'.$this->lang->line("date").': </b></label>';
 	echo '<input type="text" id="date" value="'.$menu['date'].'" name="date" readonly="readonly">';
 		echo '<table>';
 			echo '<td class="kitchen_menu_view">';
 				echo '<table id="b">';
-					echo '<b><p>HOMMIKUSÖÖK</p></b>';
+					echo '<b><p>'.$this->lang->line("breakfast").'</p></b>';
 						$i = 0;
 						foreach ($breakfast_array as $breakfast) {
 							if($breakfast != ""){
 								$breakfast_info = explode('=', $breakfast);
-								echo '<b>Toit: </b><input value="'.$breakfast_info[0].'" id="b_'.$i.'" type="text"><br/> <b>Koostis: </b><br/><textarea id="b_c_'.$i.'" rows="4" cols="32">'.str_replace("|","\n",$breakfast_info[1]).'</textarea><br/>';
+								echo '<b>'.$this->lang->line("food").': </b><input value="'.$breakfast_info[0].'" id="b_'.$i.'" type="text"><br/> <b>'.$this->lang->line("ingredients").': </b><br/><textarea id="b_c_'.$i.'" rows="4" cols="32">'.str_replace("|","\n",$breakfast_info[1]).'</textarea><br/>';
 								$i++;
 							}
 						}
@@ -37,12 +37,12 @@ echo '<form onsubmit="return saveKitchenMenuEdit(\''.$this->lang->line("kitchen_
 			
 			echo '<td class="kitchen_menu_view">';
 				echo '<table id="l">';
-					echo '<b><p>LÕUNASÖÖK</p></b>';
+					echo '<b><p>'.$this->lang->line("lunch").'</p></b>';
 						$i = 0;
 						foreach ($lunch_array as $lunch) {
 							if($lunch != ""){
 								$lunch_info = explode('=', $lunch);
-								echo '<b>Toit: </b><input value="'.$lunch_info[0].'" id="l_'.$i.'" type="text"><br/> <b>Koostis: </b><br/><textarea id="l_c_'.$i.'" rows="4" cols="32">'.str_replace("|","\n",$lunch_info[1]).'</textarea><br/>';
+								echo '<b>'.$this->lang->line("food").': </b><input value="'.$lunch_info[0].'" id="l_'.$i.'" type="text"><br/> <b>'.$this->lang->line("ingredients").': </b><br/><textarea id="l_c_'.$i.'" rows="4" cols="32">'.str_replace("|","\n",$lunch_info[1]).'</textarea><br/>';
 								$i++;
 							}
 						}
@@ -52,12 +52,12 @@ echo '<form onsubmit="return saveKitchenMenuEdit(\''.$this->lang->line("kitchen_
 			
 			echo '<td class="kitchen_menu_view">';
 				echo '<table id="s">';
-					echo '<b><p>ÕHTUSÖÖK</p></b>';
+					echo '<b><p>'.$this->lang->line("dinner").'</p></b>';
 						$i = 0;
 						foreach ($supper_array as $supper) {
 							if($supper != ""){
 								$supper_info = explode('=', $supper);
-								echo '<b>Toit: </b><input value="'.$supper_info[0].'" id="s_'.$i.'" type="text"><br/> <b>Koostis: </b><br/><textarea id="s_c_'.$i.'" rows="4" cols="32">'.str_replace("|","\n",$supper_info[1]).'</textarea><br/>';
+								echo '<b>'.$this->lang->line("food").': </b><input value="'.$supper_info[0].'" id="s_'.$i.'" type="text"><br/> <b>'.$this->lang->line("ingredients").': </b><br/><textarea id="s_c_'.$i.'" rows="4" cols="32">'.str_replace("|","\n",$supper_info[1]).'</textarea><br/>';
 								$i++;
 							}
 						}
@@ -71,7 +71,7 @@ echo '<form onsubmit="return saveKitchenMenuEdit(\''.$this->lang->line("kitchen_
 	echo '<input id="supper_result" name="supper" type="hidden" value="">';
 	echo '<input name="previous_date" type="hidden" value="'.$date.'">';
 
-	echo '<input type="submit" value="Salvesta muudatus">';
+	echo '<input type="submit" value='.$this->lang->line("save").'>';
 	
 	
 	

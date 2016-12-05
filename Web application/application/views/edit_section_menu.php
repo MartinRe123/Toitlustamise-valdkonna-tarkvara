@@ -1,7 +1,25 @@
 <div class="content">
-<?php echo '<h1>'.$section_name.' menüü kuupäeval '.$date.'</h1>';?>
+
+<?php
+if ($section_name == 'Kirurgia'){
+	echo '<h1>'.$this->lang->line("surgery").' '.$this->lang->line("menu_on_date").' '.$date.'</h1>';
+}
+else if ($section_name == 'Lasteosakond'){
+	echo '<h1>'.$this->lang->line("childrens_department").' '.$this->lang->line("menu_on_date").' '.$date.'</h1>';
+}
+else if ($section_name == 'Intensiivravi'){
+	echo '<h1>'.$this->lang->line("intensive").' '.$this->lang->line("menu_on_date").' '.$date.'</h1>';
+}
+
+else {
+ echo '<h1>'.$section_name.' '.$this->lang->line("menu_on_date").' '.$date.'</h1>';
+ }
+
+?>
+
+
 </br>
-<a id="lingid" href="<?php base_url() ?>/index.php/kitchen_menu">Tagasi menüüde lehele</a>
+<a id="lingid" href="<?php base_url() ?>/index.php/kitchen_menu"><?php echo $this->lang->line("back_to_menu"); ?></a>
 <br><br>
 <?php
 if(!empty($menu)){
@@ -18,9 +36,9 @@ if(!empty($menu)){
     $supper_array = explode(';', $array['supper']);
 	
     $max_rows = max(count($breakfast_array), count($lunch_array), count($supper_array));
-    echo '<b>Hoia hiirekursorit toidu nimetusel, et näha lisainfot.</b><br><br>';
+    echo '<b>'.$this->lang->line("hover_cursor").'.</b><br><br>';
     echo '<form onsubmit="return addAllCount(\''.$this->lang->line("order_notification").'\', \''.$this->lang->line("order_notification2").'\');" method="post" accept-charset="utf-8" action="/index.php/section_menu/save_menu_edit/'.$date.'"><table class="section_menu_view">';
-    echo '<tr><th>HOMMIKUSÖÖK</th><th>LÕUNASÖÖK</th><th>ÕHTUSÖÖK</th></tr>';
+    echo '<tr><th>'.$this->lang->line("breakfast").'</th><th>'.$this->lang->line("lunch").'</th><th>'.$this->lang->line("dinner").'</th></tr>';
     
 	for ($i = 0; $i < $max_rows; $i++){
         echo '<tr>';
@@ -53,9 +71,9 @@ if(!empty($menu)){
         }
         echo '</tr>';
     }
-    echo '</table><b><p>Lisamärkused:</p></b>';
+    echo '</table><b><p>'.$this->lang->line("comments").':</p></b>';
 	echo '<textarea name="comments" rows="4" cols="50">'.$comments.'</textarea><br/>';
-	echo '<input type="submit" value="Salvesta muudatus"></form>';
+	echo '<input type="submit" value="'.$this->lang->line("save").'"></form>';
 	
 	echo '<script type="text/javascript"> fillSelected("'.$order_breakfast.'", "'.$order_lunch.'", "'.$order_supper.'"); </script>';
 }
