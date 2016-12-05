@@ -4,7 +4,7 @@
 <tr>
 <td><b>VALGA HAIGLA  AS</b></td>
 <td><b>info@valgahaigla.ee</b></td>
-<td><b>Kujundus ja veebiarendus: </b></td>
+<td><b><?php echo $this->lang->line("footer_info"); ?>: </b></td>
 </tr> 
 <tr>
 <td>Peetri 2, Valga 68206</td>

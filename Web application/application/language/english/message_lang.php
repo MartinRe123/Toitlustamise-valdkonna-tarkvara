@@ -70,5 +70,6 @@ $lang['portion'] = 'portions';
 $lang['back_to_menu'] = 'Back to menus page';
 $lang['menu_on_date'] = 'Menu on date';
 $lang['hover_cursor'] = 'Hover on food name to see extra information';
+$lang['footer_info'] = 'Design and development by'
 
 ?>

@@ -70,6 +70,7 @@ $lang['portion'] = 'portsjonit';
 $lang['back_to_menu'] = 'Tagasi menüüde lehele';
 $lang['menu_on_date'] = 'Menüü kuupäeval';
 $lang['hover_cursor'] = 'Hoia hiirekursorit toidu nimetusel, et näha lisainfot';
+$lang['footer_info'] = 'Kujundus ja veebiarendus'
 
 
 
