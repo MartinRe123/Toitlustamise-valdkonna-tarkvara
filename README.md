@@ -12,6 +12,6 @@ Catering software repository for AS Valga Haigla
 
 **Team members**:
 * Kauri Raba ([Kauri94] (https://github.com/Kauri94))
-* Kalvar Seemen ([Megahit] (https://github.com/KalvarS))
+* Kalvar Seemen ([KalvarS] (https://github.com/KalvarS))
 * Marvin Maran ([marvinmaran] (https://github.com/marvinmaran))
 * Martin Reinsalu ([MartinRe123] (https://github.com/MartinRe123))
